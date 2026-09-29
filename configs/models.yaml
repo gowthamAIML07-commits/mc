@@ -1,0 +1,93 @@
+# AI / ML Models Configuration
+
+runtime:
+  device: "auto" # "auto", "cuda", "cpu"
+  mixed_precision: "fp16" # "fp16", "bf16", "fp32"
+  num_threads: 4
+
+models:
+  # Model A: Prescription OCR & Document Layout Understanding
+  prescription_ocr:
+    primary_engine: "paddleocr" # "paddleocr", "trocr", "tesseract_fallback"
+    paddleocr:
+      lang: "en"
+      use_angle_cls: true
+      det_db_thresh: 0.3
+      det_db_box_thresh: 0.5
+      rec_batch_num: 16
+    trocr_doc:
+      model_id: "microsoft/trocr-base-stage1"
+      quantization: "8bit"
+    fallback_engine: "easyocr"
+
+  # Model B: Handwritten Medicine Recognition
+  handwriting_recognition:
+    architecture: "trocr_handwritten" # "trocr_handwritten" or "crnn"
+    model_id: "microsoft/trocr-base-handwritten"
+    max_target_length: 64
+    num_beams: 4
+    top_k_alternatives: 5
+    crnn_weights_path: "ml/weights/crnn_handwriting.pth"
+
+  # Model C: Medicine Normalization & Ontology Mapping
+  medicine_normalization:
+    algorithm: "hybrid_phonetic_embedding"
+    levenshtein_threshold: 0.85
+    use_double_metaphone: true
+    embedding_similarity_threshold: 0.80
+    top_candidates: 5
+
+  # Model D: Intent Classifier
+  intent_classifier:
+    model_id: "michiyasunaga/BioLinkBERT-base"
+    num_labels: 16
+    max_length: 128
+    weights_path: "ml/weights/intent_classifier.pth"
+    temperature: 0.7
+
+  # Model E: Medical Named Entity Recognition (NER)
+  medical_ner:
+    model_id: "emilyalsentzer/Bio_ClinicalBERT"
+    num_labels: 27 # BIO scheme for 13 entities + O
+    max_length: 256
+    aggregation_strategy: "simple"
+    weights_path: "ml/weights/medical_ner.pth"
+
+  # Model F: Medical Safety & Triage Classifier
+  safety_classifier:
+    deterministic_rule_engine: true
+    ml_triage_model: "emilyalsentzer/Bio_ClinicalBERT"
+    risk_levels:
+      - "EMERGENCY"
+      - "HIGH"
+      - "MODERATE"
+      - "LOW"
+      - "OUT_OF_SCOPE"
+    emergency_threshold: 0.90
+    weights_path: "ml/weights/safety_classifier.pth"
+
+  # Model G: Conversational RAG Generation LLM
+  llm_generation:
+    # Configurable via MODEL_NAME environment variable
+    model_name: "meta-llama/Meta-Llama-3-8B-Instruct"
+    fallback_model: "mistralai/Mistral-7B-Instruct-v0.3"
+    temperature: 0.2 # Low temperature for factual medical answers
+    max_new_tokens: 768
+    top_p: 0.95
+    repetition_penalty: 1.15
+    load_in_4bit: true # QLoRA / bitsandbytes quantization
+    device_map: "auto"
+
+  # Embeddings & Reranking Models
+  embeddings:
+    model_id: "BAAI/bge-m3"
+    dimension: 1024
+    max_seq_length: 8192
+    normalize_embeddings: true
+    batch_size: 32
+
+  reranker:
+    model_id: "BAAI/bge-reranker-large"
+    max_length: 512
+    top_n: 5
+    score_threshold: 0.60

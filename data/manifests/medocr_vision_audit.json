@@ -1,0 +1,279 @@
+{
+  "dataset_name": "MedOCR-Vision Dataset (Indian Medical Prescription OCR)",
+  "source_url": "https://huggingface.co/datasets/naazimsnh02/medocr-vision-dataset",
+  "verified_hash": "664201c9bb855547e626d8edcad4101da0eef113762606400284330279ef5e7b",
+  "audit_timestamp": "2026-09-29T11:18:58Z",
+  "total_samples": 2462,
+  "splits": {
+    "train": {
+      "sample_count": 1969,
+      "dimensions": {
+        "min_width": 193,
+        "max_width": 5425,
+        "mean_width": 930.5,
+        "median_width": 800.0,
+        "min_height": 163,
+        "max_height": 8117,
+        "mean_height": 1230.3,
+        "median_height": 1000.0,
+        "mean_aspect_ratio": 0.794
+      },
+      "image_modes": {
+        "RGB": 1969
+      },
+      "missing_images": 0,
+      "corrupt_images": 0,
+      "text_statistics": {
+        "empty_text_count": 0,
+        "short_text_count_lt_5": 0,
+        "long_text_count_gt_500": 629,
+        "min_chars": 45,
+        "max_chars": 4735,
+        "mean_chars": 633.7,
+        "median_chars": 341.0,
+        "mean_words": 95.4,
+        "mean_lines": 1.0
+      },
+      "duplicates_within_split": {
+        "image_exact_duplicates": 5,
+        "text_exact_duplicates": 2
+      },
+      "category_distribution": {
+        "prescription": 903,
+        "general_ocr": 755,
+        "medical_document": 283,
+        "medicine_drug_related": 28
+      },
+      "script_distribution": {
+        "latin": 1917,
+        "mixed_or_symbols": 52
+      },
+      "representative_samples": [
+        {
+          "sample_index": 0,
+          "image_dimensions": [
+            800,
+            1000
+          ],
+          "image_mode": "RGB",
+          "text_length": 233,
+          "text_snippet": "<s_ocr> doctor_name: Dr. A. Smith clinic_name: Meadowview Health clinic_address: 45 Oak Ave. patient_name: John Doe patient_age: 35 date: 2024-12-16 medications...",
+          "category": "prescription",
+          "script": "latin"
+        },
+        {
+          "sample_index": 1,
+          "image_dimensions": [
+            348,
+            348
+          ],
+          "image_mode": "RGB",
+          "text_length": 280,
+          "text_snippet": "9437 Mahlet 91/1 JANO314218P 8422 5512 Subtotal 1 BV CABERNET SODA BAR 14 8.00 MUSHROON SWISS 13.69 2.99 1 CL CHZ BURGER WELL NELL 15.19 CHEDDAR SUB CAESAR SAUC...",
+          "category": "general_ocr",
+          "script": "latin"
+        },
+        {
+          "sample_index": 2,
+          "image_dimensions": [
+            1648,
+            2328
+          ],
+          "image_mode": "RGB",
+          "text_length": 1589,
+          "text_snippet": "**MAHARISHI MARKANDESHWAR COLLEGE OF MEDICAL SCIENCES AND RESEARCH** **SADOPUR - AMBALA**  ---  **DEPARTMENT OF BIOCHEMISTRY**  | Patient | [REDACTED] | | --- |...",
+          "category": "prescription",
+          "script": "latin"
+        }
+      ]
+    },
+    "validation": {
+      "sample_count": 246,
+      "dimensions": {
+        "min_width": 202,
+        "max_width": 2500,
+        "mean_width": 957.5,
+        "median_width": 800.0,
+        "min_height": 180,
+        "max_height": 2412,
+        "mean_height": 1282.0,
+        "median_height": 1000.0,
+        "mean_aspect_ratio": 0.775
+      },
+      "image_modes": {
+        "RGB": 246
+      },
+      "missing_images": 0,
+      "corrupt_images": 0,
+      "text_statistics": {
+        "empty_text_count": 0,
+        "short_text_count_lt_5": 0,
+        "long_text_count_gt_500": 97,
+        "min_chars": 181,
+        "max_chars": 4095,
+        "mean_chars": 676.5,
+        "median_chars": 368.5,
+        "mean_words": 102.3,
+        "mean_lines": 1.0
+      },
+      "duplicates_within_split": {
+        "image_exact_duplicates": 0,
+        "text_exact_duplicates": 0
+      },
+      "category_distribution": {
+        "prescription": 94,
+        "general_ocr": 109,
+        "medical_document": 39,
+        "medicine_drug_related": 4
+      },
+      "script_distribution": {
+        "latin": 238,
+        "mixed_or_symbols": 8
+      },
+      "representative_samples": [
+        {
+          "sample_index": 0,
+          "image_dimensions": [
+            800,
+            1000
+          ],
+          "image_mode": "RGB",
+          "text_length": 315,
+          "text_snippet": "<s_ocr> doctor_name: Dr. C. Rossi clinic_name: Oakview Hospital clinic_address: 678 Orchard Ln. patient_name: Jane Smith patient_age: 53 date: 2024-12-16 medica...",
+          "category": "prescription",
+          "script": "latin"
+        },
+        {
+          "sample_index": 1,
+          "image_dimensions": [
+            1079,
+            1440
+          ],
+          "image_mode": "RGB",
+          "text_length": 708,
+          "text_snippet": "SIZE? LIVEAPOOLSIZE? TEL:01517078813 VAT NO:797440102 DATE SAI FEB 1113:16:472017 RECEIPT:00226-1-13031 4058027657499YEEZY 350V2 BLK 1150.00 20 150.00 163016000...",
+          "category": "general_ocr",
+          "script": "latin"
+        },
+        {
+          "sample_index": 2,
+          "image_dimensions": [
+            750,
+            1000
+          ],
+          "image_mode": "RGB",
+          "text_length": 473,
+          "text_snippet": "FACTURE 78000 VERSAILLES Tel 01.39.02.36.03 TVA INTRA FR11420466708 Caissier #166 Restaurant 188 #CDE 152-CSE 04-27/04/2015 13:22:14 QTEPRODUIT UNIT TOTAL 1 The...",
+          "category": "general_ocr",
+          "script": "latin"
+        }
+      ]
+    },
+    "test": {
+      "sample_count": 247,
+      "dimensions": {
+        "min_width": 150,
+        "max_width": 1920,
+        "mean_width": 940.0,
+        "median_width": 800.0,
+        "min_height": 164,
+        "max_height": 2370,
+        "mean_height": 1235.7,
+        "median_height": 1000.0,
+        "mean_aspect_ratio": 0.801
+      },
+      "image_modes": {
+        "RGB": 247
+      },
+      "missing_images": 0,
+      "corrupt_images": 0,
+      "text_statistics": {
+        "empty_text_count": 0,
+        "short_text_count_lt_5": 0,
+        "long_text_count_gt_500": 83,
+        "min_chars": 182,
+        "max_chars": 3302,
+        "mean_chars": 647.6,
+        "median_chars": 344.0,
+        "mean_words": 98.5,
+        "mean_lines": 1.0
+      },
+      "duplicates_within_split": {
+        "image_exact_duplicates": 0,
+        "text_exact_duplicates": 0
+      },
+      "category_distribution": {
+        "general_ocr": 93,
+        "prescription": 101,
+        "medicine_drug_related": 8,
+        "medical_document": 45
+      },
+      "script_distribution": {
+        "latin": 243,
+        "mixed_or_symbols": 4
+      },
+      "representative_samples": [
+        {
+          "sample_index": 0,
+          "image_dimensions": [
+            750,
+            1000
+          ],
+          "image_mode": "RGB",
+          "text_length": 565,
+          "text_snippet": "nofrills lower food pxioes WHY PAY MORE?..SHOP AT JOE'S NO FRILLS 21-GROCERY 06321119455 CAMP BROTH CHICK R 2.69 06827437434 NESTLE WATER R 1.33 82869606086 ARZ...",
+          "category": "general_ocr",
+          "script": "latin"
+        },
+        {
+          "sample_index": 1,
+          "image_dimensions": [
+            800,
+            1000
+          ],
+          "image_mode": "RGB",
+          "text_length": 301,
+          "text_snippet": "<s_ocr> doctor_name: Dr. C. Rossi clinic_name: Oakview Hospital clinic_address: 45 Oak Ave. patient_name: Jane Smith patient_age: 38 date: 2024-12-16 medication...",
+          "category": "prescription",
+          "script": "latin"
+        },
+        {
+          "sample_index": 2,
+          "image_dimensions": [
+            402,
+            595
+          ],
+          "image_mode": "RGB",
+          "text_length": 196,
+          "text_snippet": "PAG INA 7 DI BRUGNONI RENZO UIA A.UERTUNNI 173 ROMA PI 10694991000 EURO REPFRT1 1.60 TOTALE 1,60 CONTANTI 1,60 RESTO 0,00 SCONIRINO FISCALE 000013 UENERD1 01-08...",
+          "category": "general_ocr",
+          "script": "latin"
+        }
+      ]
+    }
+  },
+  "cross_split_leakage": {
+    "exact_image_overlap": {
+      "train_vs_validation": 1,
+      "train_vs_test": 1,
+      "validation_vs_test": 0
+    },
+    "exact_text_overlap": {
+      "train_vs_validation": 0,
+      "train_vs_test": 1,
+      "validation_vs_test": 0
+    },
+    "leakage_summary": "Exact image overlap detected across splits."
+  },
+  "overall_category_distribution": {
+    "prescription": 1098,
+    "general_ocr": 957,
+    "medical_document": 367,
+    "medicine_drug_related": 40
+  },
+  "overall_script_distribution": {
+    "latin": 2398,
+    "mixed_or_symbols": 64
+  },
+  "elapsed_audit_seconds": 25.47
+}

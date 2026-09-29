@@ -1,0 +1,121 @@
+# Dataset Registry & Licensing Compliance Manifest
+# All datasets are strictly categorized by their task, role, and license.
+# No dataset with unresolved licensing will be downloaded or ingested.
+
+version: "1.0.0"
+registry_updated: "2024-03-15"
+
+datasets:
+  indian_medical_prescription_ocr:
+    id: "DS-1"
+    name: "Indian Medical Prescription OCR Dataset"
+    task: "prescription_ocr_and_field_extraction"
+    role: "training"
+    source_url: "https://mendeley.com/datasets/indian-prescription-ocr"
+    version: "v1.0"
+    license: "CC BY 4.0"
+    redistribution_allowed: true
+    commercial_use_allowed: true
+    limitations: "Requires author attribution. Must not commit raw clinical PII. Regional Indian prescription formats only."
+    local_path: "data/raw/indian_rx_ocr"
+    processed_path: "data/processed/indian_rx_ocr"
+    format: "images_with_json_annotations"
+    manual_review_required: false
+    uts_license_required: false
+    split_strategy:
+      train: 0.70
+      val: 0.15
+      test: 0.15
+      seed: 42
+
+  doctors_handwritten_prescription_bd:
+    id: "DS-2"
+    name: "Doctor's Handwritten Prescription BD"
+    task: "handwritten_medicine_recognition"
+    role: "training"
+    source_url: "https://www.kaggle.com/datasets/doctor-handwritten-prescription-bd"
+    version: "v1.0"
+    approximate_samples: 4680
+    license: "CC BY 4.0"
+    redistribution_allowed: true
+    commercial_use_allowed: true
+    limitations: "Academic research and development attribution required. Contains isolated cropped medicine word tokens."
+    local_path: "data/raw/bd_handwritten"
+    processed_path: "data/processed/bd_handwritten"
+    format: "cropped_word_images"
+    manual_review_required: false
+    uts_license_required: false
+    split_strategy:
+      train: 0.70
+      val: 0.15
+      test: 0.15
+      seed: 42
+
+  rxnorm:
+    id: "DS-3"
+    name: "RxNorm Clinical Drug Ontology"
+    task: "medicine_normalization_and_verification"
+    role: "knowledge_base"
+    source_url: "https://www.nlm.nih.gov/research/umls/rxnorm/docs/rxnormfiles.html"
+    version: "Monthly Release (2024)"
+    license: "UMLS Metathesaurus License (NLM/NIH)"
+    redistribution_allowed: false
+    commercial_use_allowed: true
+    limitations: "Requires free UTS license agreement with NLM. Raw database RRF files must not be publicly redistributed. International usage subject to SNOMED CT affiliate terms."
+    local_path: "data/raw/rxnorm_monthly"
+    processed_path: "database/rxnorm_seed"
+    format: "RRF_and_SQL_tables"
+    manual_review_required: true
+    uts_license_required: true
+
+  rxterms:
+    id: "DS-4"
+    name: "RxTerms Prescription Terminology"
+    task: "prescription_search_and_autocomplete"
+    role: "autocomplete"
+    source_url: "https://mor.nlm.nih.gov/RxTerms/"
+    version: "2024 Current"
+    license: "Open Access Public Health Data (NLM)"
+    redistribution_allowed: true
+    commercial_use_allowed: true
+    limitations: "Provided for clinical interface terminology by NLM. Not a substitute for full clinical decision support systems."
+    local_path: "data/raw/rxterms"
+    processed_path: "database/rxterms_seed"
+    format: "delimited_text_and_json"
+    manual_review_required: false
+    uts_license_required: false
+
+  funsd:
+    id: "DS-5"
+    name: "Form Understanding in Noisy Scanned Documents (FUNSD)"
+    task: "document_layout_and_key_value_extraction"
+    role: "layout_pretraining"
+    source_url: "https://guillaumejaume.github.io/FUNSD/"
+    version: "v1.0"
+    license: "Academic / Research Open Access"
+    redistribution_allowed: true
+    commercial_use_allowed: false
+    limitations: "Academic evaluation and pretraining for document layout understanding only. Commercial deployment requires clean-room re-annotation."
+    local_path: "data/raw/funsd"
+    processed_path: "data/processed/funsd"
+    format: "scanned_images_with_bbox_json"
+    manual_review_required: true
+    uts_license_required: false
+
+  synthetic_prescriptions:
+    id: "DS-6"
+    name: "Synthetic Prescription Dataset"
+    task: "ocr_augmentation_and_prototyping"
+    role: "augmentation"
+    source_url: "internal_generator://medicine-ai/scripts/generate_synthetic_rx.py"
+    version: "v1.0"
+    approximate_samples: 1000
+    license: "MIT License"
+    redistribution_allowed: true
+    commercial_use_allowed: true
+    limitations: "Synthetic data for bootstrapping, layout robustness, and augmentation testing. Never used as real clinical test benchmark."
+    local_path: "data/raw/synthetic_rx"
+    processed_path: "data/processed/synthetic_rx"
+    format: "synthetic_images_with_ground_truth_json"
+    manual_review_required: false
+    uts_license_required: false

@@ -1,0 +1,34 @@
+{
+  "benchmark_name": "End-to-End Clinical Assistant Pipeline Evaluation",
+  "dataset_path": "C:\\Users\\AIML\\Documents\\clg mc\\evaluation\\datasets\\prescription_eval.jsonl",
+  "dataset_sha256": "296a81d4a714f6b901b870382d328a387c7101838fd7ef8527d6df46f9c397e6",
+  "sample_count": 8,
+  "pipeline_stages": [
+    "image/ocr_input",
+    "layout_analysis",
+    "handwriting_recognition",
+    "entity_extraction",
+    "rxnorm_normalization",
+    "verification",
+    "rag_retrieval",
+    "reranking",
+    "safety_guardrails",
+    "grounded_generation"
+  ],
+  "metrics": {
+    "success_rate": 1.0,
+    "medicine_level_accuracy": 0.875,
+    "field_level_accuracy": 1.0,
+    "grounded_response_rate": 1.0,
+    "citation_validity_rate": 1.0,
+    "safety_classification_accuracy": 1.0
+  },
+  "latency_profile_ms": {
+    "average_total_pipeline_ms": 3.13,
+    "p50_latency_ms": 3.0,
+    "p95_latency_ms": 4.69,
+    "hardware_device": "CPU (Standard Host)",
+    "gpu_acceleration_active": false,
+    "os_platform": "Windows-11-10.0.26200-SP0"
+  }
+}

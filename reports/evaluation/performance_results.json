@@ -1,0 +1,29 @@
+{
+  "benchmark_name": "Performance, Latency & Load Benchmark",
+  "sample_count": 150,
+  "cold_start_latency_ms": 17.45,
+  "warm_inference_latency_ms": {
+    "average_ms": 2.53,
+    "p50_ms": 2.55,
+    "p95_ms": 2.92,
+    "p99_ms": 3.1,
+    "min_ms": 2.02,
+    "max_ms": 3.1
+  },
+  "concurrency_and_throughput": {
+    "concurrency_level": 10,
+    "total_requests_executed": 100,
+    "total_time_seconds": 0.25,
+    "requests_per_second": 400.14
+  },
+  "resource_utilization": {
+    "peak_memory_traced_mb": 0.0,
+    "cpu_core_count": 24,
+    "gpu_hardware": "Not Available (CPU Inference Host)"
+  },
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.14.6",
+    "torch_version": "2.14.0+cpu"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "pipeline_name": "Document Layout Understanding & Key-Value Parsing",
+  "model_id": "Model_D_SpatialRelationExtractor",
+  "dataset_name": "FUNSD (Form Understanding in Noisy Scanned Documents)",
+  "dataset_version": "v1.0",
+  "dataset_sha256": "8a6d24fa598f5bf6a5dbefa15037c8f3effc61e0b1bc0d1bfaa3ee8dd69bcb42",
+  "training_seed": 42,
+  "training_time_seconds": 0.84,
+  "hardware_information": {
+    "os_name": "Windows",
+    "os_release": "11",
+    "os_version": "10.0.26200",
+    "architecture": "AMD64",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "cpu_count_logical": 24,
+    "python_version": "3.14.6",
+    "pytorch_version": "2.14.0+cpu",
+    "cuda_available": false,
+    "device_count": 0,
+    "device_name": "CPU"
+  },
+  "model_configuration": {
+    "architecture": "Spatial_Pair_MLP_LayerNorm",
+    "input_dim": 12,
+    "hidden_dim": 64,
+    "num_categories": 7,
+    "epochs": 5,
+    "learning_rate": 0.003,
+    "optimizer": "Adam"
+  },
+  "training_metrics": {
+    "final_train_loss": 1.2068,
+    "final_train_accuracy": 0.9333,
+    "epoch_history": [
+      {
+        "epoch": 5,
+        "loss": 1.2068,
+        "accuracy": 0.9333
+      }
+    ]
+  },
+  "validation_metrics": {
+    "val_accuracy": 0.9571,
+    "val_loss": 1.0644
+  },
+  "test_metrics": {
+    "key_value_pairing_accuracy": 0.9571,
+    "test_loss": 1.0644,
+    "test_pairs_evaluated": 210
+  },
+  "checkpoint_path": "checkpoints\\layout\\best_layout_parser.pt"
+}

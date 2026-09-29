@@ -1,0 +1,214 @@
+{
+  "pipeline": "Multi-Task End-to-End Integration Benchmark (Phase 4)",
+  "total_test_cases": 5,
+  "total_expected_medicines": 10,
+  "benchmark_duration_seconds": 0.03,
+  "stage_performances": {
+    "ocr_accuracy": 1.0,
+    "layout_association_accuracy": 1.0,
+    "handwriting_recognition_accuracy": 1.0,
+    "normalization_accuracy": 0.7
+  },
+  "end_to_end_metrics": {
+    "end_to_end_medicine_recognition_accuracy": 0.7,
+    "end_to_end_prescription_accuracy": 0.4,
+    "failure_rate": 0.6,
+    "average_latency_per_prescription_ms": 1.65,
+    "confidence_distribution": {
+      "high_confidence_verified_ge_085": 1,
+      "review_required_lt_085": 9
+    }
+  },
+  "case_evaluations": [
+    {
+      "case_id": "E2E_CASE_01",
+      "type": "printed_templated",
+      "latency_ms": 1.31,
+      "ocr_extracted_fields": {
+        "doctor": "Dr. Synthetic Specimen A",
+        "patient": "Synthetic Patient Alpha",
+        "medications_count": 2
+      },
+      "normalized_medicines": [
+        {
+          "raw_string": "Tab. Amoxicillin 500mg (1-0-1 x 5 days)",
+          "canonical_name": "Amoxicillin 500 MG Oral Tablet",
+          "rxnorm_id": "308189",
+          "confidence": 0.79,
+          "verification_status": "review_required",
+          "tier": "fuzzy_levenshtein"
+        },
+        {
+          "raw_string": "Tab. Dolo 650mg (SOS x 3 days)",
+          "canonical_name": "Unrecognized Entity",
+          "rxnorm_id": null,
+          "confidence": 0.0,
+          "verification_status": "unverified",
+          "tier": "none"
+        }
+      ],
+      "expected_rxcuis": [
+        "308189",
+        "161"
+      ],
+      "extracted_rxcuis": [
+        "308189",
+        null
+      ],
+      "is_case_fully_correct": false,
+      "error_origin": "normalization_or_ocr"
+    },
+    {
+      "case_id": "E2E_CASE_02",
+      "type": "printed_templated",
+      "latency_ms": 3.87,
+      "ocr_extracted_fields": {
+        "doctor": "Dr. Synthetic Specimen B",
+        "patient": "Synthetic Patient Beta",
+        "medications_count": 2
+      },
+      "normalized_medicines": [
+        {
+          "raw_string": "Cap. Pan 40mg (1-0-0 x 14 days)",
+          "canonical_name": "Unrecognized Entity",
+          "rxnorm_id": null,
+          "confidence": 0.0,
+          "verification_status": "unverified",
+          "tier": "none"
+        },
+        {
+          "raw_string": "Tab. Azithral 500mg (1-0-0 x 3 days)",
+          "canonical_name": "Azithromycin 500 MG Oral Tablet",
+          "rxnorm_id": "198440",
+          "confidence": 0.72,
+          "verification_status": "review_required",
+          "tier": "fuzzy_levenshtein"
+        }
+      ],
+      "expected_rxcuis": [
+        "312615",
+        "198440"
+      ],
+      "extracted_rxcuis": [
+        null,
+        "198440"
+      ],
+      "is_case_fully_correct": false,
+      "error_origin": "normalization_or_ocr"
+    },
+    {
+      "case_id": "E2E_CASE_03",
+      "type": "mixed_handwritten_printed",
+      "latency_ms": 1.02,
+      "ocr_extracted_fields": {
+        "doctor": "Dr. Clinical Doctor",
+        "patient": "Synthetic Patient Gamma",
+        "medications_count": 2
+      },
+      "normalized_medicines": [
+        {
+          "raw_string": "Tab. Glycomet 500mg (1-0-1 x 30 days)",
+          "canonical_name": "Metformin hydrochloride 500 MG Oral Tablet",
+          "rxnorm_id": "860975",
+          "confidence": 0.7,
+          "verification_status": "review_required",
+          "tier": "fuzzy_levenshtein"
+        },
+        {
+          "raw_string": "Tab. Zyrtec 10mg (0-0-1 x 5 days)",
+          "canonical_name": "Unrecognized Entity",
+          "rxnorm_id": null,
+          "confidence": 0.0,
+          "verification_status": "unverified",
+          "tier": "none"
+        }
+      ],
+      "expected_rxcuis": [
+        "860975",
+        "310489"
+      ],
+      "extracted_rxcuis": [
+        "860975",
+        null
+      ],
+      "is_case_fully_correct": false,
+      "error_origin": "normalization_or_ocr"
+    },
+    {
+      "case_id": "E2E_CASE_04",
+      "type": "noisy_abbreviations",
+      "latency_ms": 1.51,
+      "ocr_extracted_fields": {
+        "doctor": "Dr. Specialist",
+        "patient": "Synthetic Patient Delta",
+        "medications_count": 3
+      },
+      "normalized_medicines": [
+        {
+          "raw_string": "PCM 650",
+          "canonical_name": "Acetaminophen 650 MG Oral Tablet",
+          "rxnorm_id": "161",
+          "confidence": 0.73,
+          "verification_status": "review_required",
+          "tier": "fuzzy_levenshtein"
+        },
+        {
+          "raw_string": "AMX 500",
+          "canonical_name": "Amoxicillin 500 MG Oral Tablet",
+          "rxnorm_id": "308189",
+          "confidence": 0.66,
+          "verification_status": "review_required",
+          "tier": "fuzzy_levenshtein"
+        },
+        {
+          "raw_string": "PANTO 40",
+          "canonical_name": "Pantoprazole 40 MG Delayed Release Oral Tablet",
+          "rxnorm_id": "312615",
+          "confidence": 0.99,
+          "verification_status": "verified",
+          "tier": "fuzzy_levenshtein"
+        }
+      ],
+      "expected_rxcuis": [
+        "161",
+        "308189",
+        "312615"
+      ],
+      "extracted_rxcuis": [
+        "161",
+        "308189",
+        "312615"
+      ],
+      "is_case_fully_correct": true,
+      "error_origin": null
+    },
+    {
+      "case_id": "E2E_CASE_05",
+      "type": "out_of_vocab_and_noisy",
+      "latency_ms": 0.53,
+      "ocr_extracted_fields": {
+        "doctor": "Dr. Unknown",
+        "patient": "Synthetic Patient Epsilon",
+        "medications_count": 1
+      },
+      "normalized_medicines": [
+        {
+          "raw_string": "UnknownDrugCompoundXYZ 100mg",
+          "canonical_name": "Unrecognized Entity",
+          "rxnorm_id": null,
+          "confidence": 0.0,
+          "verification_status": "unverified",
+          "tier": "none"
+        }
+      ],
+      "expected_rxcuis": [
+        null
+      ],
+      "extracted_rxcuis": [
+        null
+      ],
+      "is_case_fully_correct": true,
+      "error_origin": null
+    }
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "pipeline": "RxNorm / RxTerms Clinical Entity Normalization (Phase 4)",
+  "knowledge_base_sha256": "074909cc643919ed32b589cd341c1d67aa8f3f3d3747a17ae2d20b204791a236",
+  "concept_count": 15,
+  "benchmark_duration_seconds": 0.01,
+  "test_metrics": {
+    "top1_normalization_accuracy": 0.9545,
+    "top5_recall_rate": 1.0,
+    "unresolved_rate": 0.0455,
+    "false_positive_rate": 0.0,
+    "total_benchmark_queries": 22
+  },
+  "query_evaluations": [
+    {
+      "query": "Amoxicillin 500 MG Oral Tablet",
+      "category": "exact_canonical",
+      "expected_rxcui": "308189",
+      "predicted_rxcui": "308189",
+      "confidence": 0.98,
+      "match_tier": "exact_hash",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "Metformin hydrochloride 500 MG Oral Tablet",
+      "category": "exact_canonical",
+      "expected_rxcui": "860975",
+      "predicted_rxcui": "860975",
+      "confidence": 0.98,
+      "match_tier": "exact_hash",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "Dolo 650",
+      "category": "trade_alias",
+      "expected_rxcui": "161",
+      "predicted_rxcui": "161",
+      "confidence": 0.98,
+      "match_tier": "exact_hash",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "Pan 40",
+      "category": "trade_alias",
+      "expected_rxcui": "312615",
+      "predicted_rxcui": "312615",
+      "confidence": 0.98,
+      "match_tier": "exact_hash",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "Azithral 500",
+      "category": "trade_alias",
+      "expected_rxcui": "198440",
+      "predicted_rxcui": "198440",
+      "confidence": 0.98,
+      "match_tier": "phonetic_metaphone",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "Glycomet 500mg",
+      "category": "trade_alias",
+      "expected_rxcui": "860975",
+      "predicted_rxcui": "860975",
+      "confidence": 0.95,
+      "match_tier": "exact_sanitized",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "Zyrtec 10mg",
+      "category": "trade_alias",
+      "expected_rxcui": "310489",
+      "predicted_rxcui": "310489",
+      "confidence": 0.95,
+      "match_tier": "exact_sanitized",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "Brufen 400",
+      "category": "trade_alias",
+      "expected_rxcui": "310965",
+      "predicted_rxcui": "310965",
+      "confidence": 0.97,
+      "match_tier": "phonetic_metaphone",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "Atorva 10",
+      "category": "trade_alias",
+      "expected_rxcui": "310798",
+      "predicted_rxcui": "310798",
+      "confidence": 0.98,
+      "match_tier": "phonetic_metaphone",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "Telma 40",
+      "category": "trade_alias",
+      "expected_rxcui": "314164",
+      "predicted_rxcui": "314164",
+      "confidence": 0.97,
+      "match_tier": "phonetic_metaphone",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "PCM 650",
+      "category": "clinical_abbreviation",
+      "expected_rxcui": "161",
+      "predicted_rxcui": "161",
+      "confidence": 0.73,
+      "match_tier": "fuzzy_levenshtein",
+      "verification_status": "review_required",
+      "is_correct": true
+    },
+    {
+      "query": "AMX 500",
+      "category": "clinical_abbreviation",
+      "expected_rxcui": "308189",
+      "predicted_rxcui": "308189",
+      "confidence": 0.66,
+      "match_tier": "fuzzy_levenshtein",
+      "verification_status": "review_required",
+      "is_correct": true
+    },
+    {
+      "query": "AZM 500",
+      "category": "clinical_abbreviation",
+      "expected_rxcui": "198440",
+      "predicted_rxcui": null,
+      "confidence": 0.0,
+      "match_tier": "none",
+      "verification_status": "unverified",
+      "is_correct": false
+    },
+    {
+      "query": "PANTO 40",
+      "category": "clinical_abbreviation",
+      "expected_rxcui": "312615",
+      "predicted_rxcui": "312615",
+      "confidence": 0.99,
+      "match_tier": "fuzzy_levenshtein",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "Amoxcillin 500mg",
+      "category": "phonetic_noise",
+      "expected_rxcui": "308189",
+      "predicted_rxcui": "308189",
+      "confidence": 0.95,
+      "match_tier": "exact_sanitized",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "Paractaml 650",
+      "category": "phonetic_noise",
+      "expected_rxcui": "161",
+      "predicted_rxcui": "161",
+      "confidence": 0.98,
+      "match_tier": "phonetic_metaphone",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "Azithromicin 500",
+      "category": "phonetic_noise",
+      "expected_rxcui": "198440",
+      "predicted_rxcui": "198440",
+      "confidence": 0.99,
+      "match_tier": "phonetic_metaphone",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "Metfornin 500",
+      "category": "phonetic_noise",
+      "expected_rxcui": "860975",
+      "predicted_rxcui": "860975",
+      "confidence": 0.98,
+      "match_tier": "phonetic_metaphone",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "Cetrizine 10mg",
+      "category": "phonetic_noise",
+      "expected_rxcui": "310489",
+      "predicted_rxcui": "310489",
+      "confidence": 0.95,
+      "match_tier": "exact_sanitized",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "Ibugesic 400",
+      "category": "phonetic_noise",
+      "expected_rxcui": "310965",
+      "predicted_rxcui": "310965",
+      "confidence": 0.98,
+      "match_tier": "phonetic_metaphone",
+      "verification_status": "verified",
+      "is_correct": true
+    },
+    {
+      "query": "UnknownHerbExtract123",
+      "category": "out_of_vocabulary",
+      "expected_rxcui": null,
+      "predicted_rxcui": null,
+      "confidence": 0.0,
+      "match_tier": "none",
+      "verification_status": "unverified",
+      "is_correct": true
+    },
+    {
+      "query": "NonClinicalStringXYZ",
+      "category": "out_of_vocabulary",
+      "expected_rxcui": null,
+      "predicted_rxcui": null,
+      "confidence": 0.0,
+      "match_tier": "none",
+      "verification_status": "unverified",
+      "is_correct": true
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "benchmark_name": "Deterministic Drug-Drug Interaction Evaluation",
+  "dataset_path": "C:\\Users\\AIML\\Documents\\clg mc\\evaluation\\datasets\\interaction_eval.jsonl",
+  "dataset_sha256": "c863fc8dc6ce5621b05fb5e9132d85e6b8c3b992f178b89a2cada0424e5cc51b",
+  "sample_count": 14,
+  "interaction_detection_accuracy": 1.0,
+  "unknown_pair_handling_accuracy": 1.0,
+  "pair_symmetry_preserved": true,
+  "malformed_input_safety": true,
+  "llm_reasoning_used_as_substitute": false,
+  "unverified_handling_rule": "Unknown interactions remain explicitly unverified with safety disclaimers",
+  "category_performance": {
+    "known_major_interaction": {
+      "samples": 7,
+      "accuracy": 1.0
+    },
+    "reversed_pair": {
+      "samples": 1,
+      "accuracy": 1.0
+    },
+    "known_moderate_interaction": {
+      "samples": 2,
+      "accuracy": 1.0
+    },
+    "unverified_safe_pair": {
+      "samples": 3,
+      "accuracy": 1.0
+    },
+    "unknown_entities": {
+      "samples": 1,
+      "accuracy": 1.0
+    }
+  }
+}

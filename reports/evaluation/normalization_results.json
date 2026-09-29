@@ -1,0 +1,58 @@
+{
+  "benchmark_name": "RxNorm Multi-Tier Normalization & Concept Verification",
+  "dataset_path": "C:\\Users\\AIML\\Documents\\clg mc\\evaluation\\datasets\\normalization_eval.jsonl",
+  "dataset_sha256": "07f4403cfad96dbf948c63b0c16cfcf09b1dced2000c9fc3680036fecbf359ea",
+  "sample_count": 20,
+  "split": "held_out_evaluation",
+  "top1_accuracy": 0.9,
+  "top5_accuracy": 0.95,
+  "exact_rxcui_match_rate": 0.95,
+  "verification_status_accuracy": 0.9,
+  "category_performance": {
+    "exact_generic": {
+      "samples": 1,
+      "accuracy": 1.0
+    },
+    "brand_alias": {
+      "samples": 8,
+      "accuracy": 1.0
+    },
+    "brand_alias_with_strength": {
+      "samples": 1,
+      "accuracy": 1.0
+    },
+    "clinical_shorthand": {
+      "samples": 1,
+      "accuracy": 1.0
+    },
+    "clinical_abbreviation": {
+      "samples": 1,
+      "accuracy": 1.0
+    },
+    "spelling_error": {
+      "samples": 1,
+      "accuracy": 1.0
+    },
+    "ocr_character_corruption": {
+      "samples": 1,
+      "accuracy": 1.0
+    },
+    "phonetic_variation": {
+      "samples": 2,
+      "accuracy": 1.0
+    },
+    "unknown_oov": {
+      "samples": 1,
+      "accuracy": 1.0
+    },
+    "non_medical_noise": {
+      "samples": 1,
+      "accuracy": 1.0
+    },
+    "ambiguous_fragment": {
+      "samples": 2,
+      "accuracy": 0.0
+    }
+  },
+  "evaluation_rule": "Unverified candidates are never treated as correct matches"
+}

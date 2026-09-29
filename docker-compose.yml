@@ -1,0 +1,111 @@
+version: "3.8"
+
+services:
+  # PostgreSQL 16 Relational Database
+  db:
+    image: postgres:16-alpine
+    container_name: medicine_ai_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-medicine_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-medicine_secure_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-medicine_ai}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-medicine_user} -d ${POSTGRES_DB:-medicine_ai}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Redis 7 Cache & Queue
+  cache:
+    image: redis:7-alpine
+    container_name: medicine_ai_cache
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Qdrant Vector Database
+  vector-db:
+    image: qdrant/qdrant:latest
+    container_name: medicine_ai_qdrant
+    restart: unless-stopped
+    ports:
+      - "${QDRANT_PORT:-6333}:6333"
+      - "${QDRANT_GRPC_PORT:-6334}:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:6333/readyz || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # FastAPI Backend Service
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    container_name: medicine_ai_backend
+    restart: unless-stopped
+    environment:
+      - APP_ENV=${APP_ENV:-development}
+      - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER:-medicine_user}:${POSTGRES_PASSWORD:-medicine_secure_pass}@db:5432/${POSTGRES_DB:-medicine_ai}
+      - REDIS_URL=redis://cache:6379/0
+      - QDRANT_HOST=vector-db
+      - QDRANT_PORT=6333
+      - MODEL_NAME=${MODEL_NAME:-meta-llama/Meta-Llama-3-8B-Instruct}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY:-default_insecure_key_for_dev_only}
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      cache:
+        condition: service_healthy
+      vector-db:
+        condition: service_healthy
+    volumes:
+      - ./data:/app/data
+      - ./ml/weights:/app/ml/weights
+
+  # Next.js 14 Frontend UI
+  web:
+    build:
+      context: ./apps/frontend
+      dockerfile: ../../docker/Dockerfile.frontend
+    container_name: medicine_ai_frontend
+    restart: unless-stopped
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    depends_on:
+      - api
+
+  # MLflow Experiment Tracking Server
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    container_name: medicine_ai_mlflow
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow_data:/mlflow
+    command: mlflow server --backend-store-uri sqlite:////mlflow/mlflow.db --default-artifact-root /mlflow/artifacts --host 0.0.0.0 --port 5000
+
+volumes:
+  postgres_data:
+  redis_data:
+  qdrant_data:
+  mlflow_data:

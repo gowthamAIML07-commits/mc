@@ -1,0 +1,48 @@
+{
+  "pipeline_name": "Prescription Data Augmentation & Synthesis",
+  "model_id": "Pipeline_C_Synthetic_Generator",
+  "dataset_name": "Synthetic Prescription Dataset",
+  "dataset_version": "v1.0",
+  "dataset_sha256": "b6e76ce71ef54132e72fa79c2d4c9f2a3a24c83aa7b6caa9b7d4840eb7c6e820",
+  "training_seed": 42,
+  "training_time_seconds": 0.83,
+  "hardware_information": {
+    "os_name": "Windows",
+    "os_release": "11",
+    "os_version": "10.0.26200",
+    "architecture": "AMD64",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "cpu_count_logical": 24,
+    "python_version": "3.14.6",
+    "pytorch_version": "2.14.0+cpu",
+    "cuda_available": false,
+    "device_count": 0,
+    "device_name": "CPU"
+  },
+  "model_configuration": {
+    "generator": "Procedural_PIL_Vector_Synthesis",
+    "canvas_dimensions": [
+      800,
+      1000
+    ],
+    "total_samples": 25,
+    "augmentation_noise": "Gaussian_and_Contrast_Variance",
+    "stamp_overlays": true
+  },
+  "training_metrics": {
+    "train_samples_generated": 17,
+    "total_medicines_indexed": 51,
+    "avg_medicines_per_prescription": 2.88
+  },
+  "validation_metrics": {
+    "val_samples": 4,
+    "val_medicines_count": 10,
+    "annotation_integrity_score": 1.0
+  },
+  "test_metrics": {
+    "test_samples": 4,
+    "test_medicines_count": 11,
+    "field_coverage_rate": 1.0
+  },
+  "checkpoint_path": "checkpoints\\augmentation\\synthetic_rx_manifest.pt"
+}

@@ -1,0 +1,14 @@
+{"test_id": "INTER_001", "drug_a": "Warfarin", "drug_b": "Aspirin", "expected_found": true, "expected_severity": "MAJOR", "category": "known_major_interaction"}
+{"test_id": "INTER_002", "drug_a": "Aspirin", "drug_b": "Warfarin", "expected_found": true, "expected_severity": "MAJOR", "category": "reversed_pair"}
+{"test_id": "INTER_003", "drug_a": "Warfarin", "drug_b": "Ibuprofen", "expected_found": true, "expected_severity": "MAJOR", "category": "known_major_interaction"}
+{"test_id": "INTER_004", "drug_a": "Metformin", "drug_b": "Alcohol", "expected_found": true, "expected_severity": "MAJOR", "category": "known_major_interaction"}
+{"test_id": "INTER_005", "drug_a": "Atorvastatin", "drug_b": "Clarithromycin", "expected_found": true, "expected_severity": "MAJOR", "category": "known_major_interaction"}
+{"test_id": "INTER_006", "drug_a": "Pantoprazole", "drug_b": "Methotrexate", "expected_found": true, "expected_severity": "MAJOR", "category": "known_major_interaction"}
+{"test_id": "INTER_007", "drug_a": "Amoxicillin", "drug_b": "Methotrexate", "expected_found": true, "expected_severity": "MODERATE", "category": "known_moderate_interaction"}
+{"test_id": "INTER_008", "drug_a": "Paracetamol", "drug_b": "Alcohol", "expected_found": true, "expected_severity": "MODERATE", "category": "known_moderate_interaction"}
+{"test_id": "INTER_009", "drug_a": "Lisinopril", "drug_b": "Spironolactone", "expected_found": true, "expected_severity": "MAJOR", "category": "known_major_interaction"}
+{"test_id": "INTER_010", "drug_a": "Tramadol", "drug_b": "Fluoxetine", "expected_found": true, "expected_severity": "MAJOR", "category": "known_major_interaction"}
+{"test_id": "INTER_011", "drug_a": "Paracetamol", "drug_b": "Cetirizine", "expected_found": false, "expected_severity": null, "category": "unverified_safe_pair"}
+{"test_id": "INTER_012", "drug_a": "Amoxicillin", "drug_b": "Pantoprazole", "expected_found": false, "expected_severity": null, "category": "unverified_safe_pair"}
+{"test_id": "INTER_013", "drug_a": "Metformin", "drug_b": "Cetirizine", "expected_found": false, "expected_severity": null, "category": "unverified_safe_pair"}
+{"test_id": "INTER_014", "drug_a": "FakeDrugA", "drug_b": "FakeDrugB", "expected_found": false, "expected_severity": null, "category": "unknown_entities"}

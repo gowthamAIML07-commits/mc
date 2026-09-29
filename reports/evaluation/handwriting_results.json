@@ -1,0 +1,257 @@
+{
+  "benchmark_name": "Doctor BD Handwritten Medicine Recognition",
+  "dataset_name": "Doctor's Handwritten Prescription BD",
+  "sample_count": 40,
+  "total_classes_evaluated": 40,
+  "split": "test",
+  "known_cross_split_duplicates_documented": 55,
+  "top1_accuracy": 1.0,
+  "top5_accuracy": 1.0,
+  "class_metrics_summary": {
+    "Ace": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Aceta": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Alatrol": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Amodis": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Atrizin": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Axodin": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Az": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Azithrocin": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Azyth": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Bacaid": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Backtone": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Baclofen": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Baclon": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Bacmax": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Beklo": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Bicozin": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Canazole": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Candinil": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Cetisoft": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Conaz": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Dancel": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Denixil": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Diflu": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Dinafex": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Disopan": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Esonix": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Esoral": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Etizin": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Exium": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Fenadin": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Fexo": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Fexofast": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Filmet": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Fixal": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Flamyd": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Flexibac": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Flexilax": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Flugal": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Ketocon": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "Ketoral": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    }
+  },
+  "ambiguous_classes_identified": [
+    "Az vs Azyth vs Azithrocin",
+    "Baclofen vs Baclon vs Bacmax vs Beklo",
+    "Ketocon vs Ketoral vs Ketotab vs Ketozol"
+  ]
+}

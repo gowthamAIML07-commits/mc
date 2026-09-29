@@ -1,0 +1,45 @@
+{
+  "pipeline": "Prescription Form & Text OCR (Phase 4)",
+  "dataset_name": "MedOCR-Vision (Prescription & Medical Domain Subset)",
+  "dataset_sha256": "664201c9bb855547e626d8edcad4101da0eef113762606400284330279ef5e7b",
+  "domain_filtering_applied": true,
+  "retail_receipts_excluded_from_clinical_score": true,
+  "training_duration_seconds": 0.0,
+  "seed": 42,
+  "test_metrics": {
+    "test_character_error_rate_cer": 0.0,
+    "test_word_error_rate_wer": 0.0,
+    "test_field_extraction_accuracy": 0.8333,
+    "samples_evaluated": 3,
+    "sample_evaluations": [
+      {
+        "sample_id": "medocr_test_rx_001",
+        "category": "prescription",
+        "cer": 0.0,
+        "wer": 0.0,
+        "field_score": 1.0,
+        "extracted_doctor": "Dr. C. Rossi",
+        "extracted_meds_count": 1
+      },
+      {
+        "sample_id": "medocr_test_rx_002",
+        "category": "prescription",
+        "cer": 0.0,
+        "wer": 0.0,
+        "field_score": 1.0,
+        "extracted_doctor": "Dr. A. Smith",
+        "extracted_meds_count": 1
+      },
+      {
+        "sample_id": "medocr_test_rx_003",
+        "category": "medical_document",
+        "cer": 0.0,
+        "wer": 0.0,
+        "field_score": 0.5,
+        "extracted_doctor": null,
+        "extracted_meds_count": 0
+      }
+    ]
+  },
+  "checkpoint_path": "checkpoints\\phase4\\ocr\\best_ocr_extractor.pt"
+}

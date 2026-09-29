@@ -1,0 +1,18 @@
+{
+  "benchmark_name": "Clinical Cross-Encoder Reranker Benchmark",
+  "dataset_path": "C:\\Users\\AIML\\Documents\\clg mc\\evaluation\\datasets\\rag_eval.jsonl",
+  "dataset_sha256": "df235a99f4902b097583116248ffb62872c35357cc69c30c3324ecdac670447e",
+  "sample_count": 10,
+  "baseline_hybrid_ndcg5": 0.6823,
+  "reranked_ndcg5": 0.8154,
+  "baseline_hybrid_mrr": 0.4642,
+  "reranked_mrr": 0.7167,
+  "reranked_metrics": {
+    "recall_at_5": 0.95,
+    "recall_at_10": 0.95,
+    "mrr": 0.7167,
+    "ndcg_at_5": 0.8154
+  },
+  "reranking_improves_retrieval": true,
+  "reranking_analysis": "Cross-encoder scoring aligns specific clinical sections (e.g. drug interactions, pregnancy) to user intent."
+}

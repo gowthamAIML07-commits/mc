@@ -1,0 +1,44 @@
+# Relational Database & Caching Layer Configuration
+
+database:
+  dialect: "postgresql+asyncpg"
+  host: "${POSTGRES_HOST:-localhost}"
+  port: 5432
+  database: "${POSTGRES_DB:-medicine_ai}"
+  username: "${POSTGRES_USER:-medicine_user}"
+  password: "${POSTGRES_PASSWORD:-medicine_secure_pass}"
+  pool_size: 20
+  max_overflow: 10
+  pool_timeout: 30
+  pool_recycle: 1800
+  echo_sql: false
+
+tables:
+  - "users"
+  - "prescriptions"
+  - "prescription_images"
+  - "prescription_medicines"
+  - "medicines"
+  - "medicine_aliases"
+  - "ingredients"
+  - "drug_classes"
+  - "indications"
+  - "side_effects"
+  - "contraindications"
+  - "warnings"
+  - "drug_interactions"
+  - "sources"
+  - "chat_sessions"
+  - "chat_messages"
+  - "feedback"
+  - "audit_logs"
+
+redis_cache:
+  host: "${REDIS_HOST:-localhost}"
+  port: 6379
+  db: 0
+  password: "${REDIS_PASSWORD:-}"
+  ttl_rxnorm_search_seconds: 86400 # 24 hours
+  ttl_interaction_seconds: 86400
+  ttl_session_token_seconds: 86400
+  max_connections: 50

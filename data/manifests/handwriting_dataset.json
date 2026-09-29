@@ -1,0 +1,789 @@
+{
+  "dataset_name": "Doctor's Handwritten Prescription BD Dataset",
+  "source": "Mendeley Data / Academic Repository (m97z2x6239/1)",
+  "intended_task": "Handwritten Medicine Word Recognition (CRNN / TrOCR)",
+  "license": "CC BY 4.0 (Attribution 4.0 International)",
+  "dataset_sha256": "4d0013b3ec7987f05c77ce9202f3990820bcb0aa8f27e85710205b776f0cb33b",
+  "total_samples": 4680,
+  "total_classes": 78,
+  "total_generics": 15,
+  "classes_list": [
+    "Ace",
+    "Aceta",
+    "Alatrol",
+    "Amodis",
+    "Atrizin",
+    "Axodin",
+    "Az",
+    "Azithrocin",
+    "Azyth",
+    "Bacaid",
+    "Backtone",
+    "Baclofen",
+    "Baclon",
+    "Bacmax",
+    "Beklo",
+    "Bicozin",
+    "Canazole",
+    "Candinil",
+    "Cetisoft",
+    "Conaz",
+    "Dancel",
+    "Denixil",
+    "Diflu",
+    "Dinafex",
+    "Disopan",
+    "Esonix",
+    "Esoral",
+    "Etizin",
+    "Exium",
+    "Fenadin",
+    "Fexo",
+    "Fexofast",
+    "Filmet",
+    "Fixal",
+    "Flamyd",
+    "Flexibac",
+    "Flexilax",
+    "Flugal",
+    "Ketocon",
+    "Ketoral",
+    "Ketotab",
+    "Ketozol",
+    "Leptic",
+    "Lucan-R",
+    "Lumona",
+    "M-Kast",
+    "Maxima",
+    "Maxpro",
+    "Metro",
+    "Metsina",
+    "Monas",
+    "Montair",
+    "Montene",
+    "Montex",
+    "Napa",
+    "Napa Extend",
+    "Nexcap",
+    "Nexum",
+    "Nidazyl",
+    "Nizoder",
+    "Odmon",
+    "Omastin",
+    "Opton",
+    "Progut",
+    "Provair",
+    "Renova",
+    "Rhinil",
+    "Ritch",
+    "Rivotril",
+    "Romycin",
+    "Rozith",
+    "Sergel",
+    "Tamen",
+    "Telfast",
+    "Tridosil",
+    "Trilock",
+    "Vifas",
+    "Zithrin"
+  ],
+  "generics_list": [
+    "Azithromycin Dihydrate",
+    "Azithromycin Dihydrate (Ophthalmic)",
+    "Baclofen",
+    "Cetirizine Hydrochloride",
+    "Clonazepam",
+    "Esomeprazole",
+    "Fexofenadine Hydrochloride",
+    "Fluconazole",
+    "Ketoconazole (Cream)",
+    "Ketoconazole (Shampoo)",
+    "Ketoconazole (Tablet)",
+    "Metronidazole",
+    "Montelukast Sodium",
+    "Paracetamol",
+    "Vitamin B Complex + Zinc"
+  ],
+  "splits": {
+    "training": {
+      "sample_count": 3120,
+      "images_verified": 3120,
+      "missing_images": 0,
+      "corrupt_images": 0,
+      "unique_medicines": 78,
+      "unique_generics": 15,
+      "dimensions": {
+        "min_width": 25,
+        "max_width": 980,
+        "mean_width": 160.9,
+        "median_width": 157.0,
+        "min_height": 12,
+        "max_height": 266,
+        "mean_height": 53.91,
+        "median_height": 54.0
+      },
+      "image_modes": {
+        "RGB": 597,
+        "RGBA": 1220,
+        "L": 1302,
+        "P": 1
+      },
+      "within_split_duplicate_images": 173,
+      "representative_samples": [
+        {
+          "image_filename": "0.png",
+          "medicine_name": "Aceta",
+          "generic_name": "Paracetamol",
+          "dimensions": [
+            238,
+            92
+          ],
+          "mode": "RGB",
+          "sha256": "864aca8fc7c84631..."
+        },
+        {
+          "image_filename": "1.png",
+          "medicine_name": "Aceta",
+          "generic_name": "Paracetamol",
+          "dimensions": [
+            207,
+            84
+          ],
+          "mode": "RGB",
+          "sha256": "893f3b81f6e12d23..."
+        },
+        {
+          "image_filename": "2.png",
+          "medicine_name": "Aceta",
+          "generic_name": "Paracetamol",
+          "dimensions": [
+            324,
+            89
+          ],
+          "mode": "RGB",
+          "sha256": "20b8c407aa0a334b..."
+        },
+        {
+          "image_filename": "3.png",
+          "medicine_name": "Aceta",
+          "generic_name": "Paracetamol",
+          "dimensions": [
+            283,
+            96
+          ],
+          "mode": "RGB",
+          "sha256": "49a09871358ef21d..."
+        },
+        {
+          "image_filename": "4.png",
+          "medicine_name": "Aceta",
+          "generic_name": "Paracetamol",
+          "dimensions": [
+            187,
+            63
+          ],
+          "mode": "RGB",
+          "sha256": "d83a2700a41c507e..."
+        }
+      ],
+      "top_medicine_counts": {
+        "Aceta": 40,
+        "Ace": 40,
+        "Alatrol": 40,
+        "Amodis": 40,
+        "Atrizin": 40,
+        "Axodin": 40,
+        "Azithrocin": 40,
+        "Azyth": 40,
+        "Az": 40,
+        "Bacaid": 40
+      },
+      "generic_counts": {
+        "Esomeprazole": 400,
+        "Fexofenadine Hydrochloride": 360,
+        "Montelukast Sodium": 360,
+        "Baclofen": 320,
+        "Fluconazole": 280,
+        "Paracetamol": 240,
+        "Metronidazole": 240,
+        "Azithromycin Dihydrate": 240,
+        "Cetirizine Hydrochloride": 200,
+        "Clonazepam": 160,
+        "Ketoconazole (Shampoo)": 120,
+        "Ketoconazole (Tablet)": 80,
+        "Vitamin B Complex + Zinc": 40,
+        "Ketoconazole (Cream)": 40,
+        "Azithromycin Dihydrate (Ophthalmic)": 40
+      }
+    },
+    "validation": {
+      "sample_count": 780,
+      "images_verified": 780,
+      "missing_images": 0,
+      "corrupt_images": 0,
+      "unique_medicines": 78,
+      "unique_generics": 15,
+      "dimensions": {
+        "min_width": 43,
+        "max_width": 1251,
+        "mean_width": 157.19,
+        "median_width": 146.0,
+        "min_height": 12,
+        "max_height": 306,
+        "mean_height": 52.46,
+        "median_height": 47.0
+      },
+      "image_modes": {
+        "RGB": 245,
+        "L": 408,
+        "RGBA": 127
+      },
+      "within_split_duplicate_images": 13,
+      "representative_samples": [
+        {
+          "image_filename": "0.png",
+          "medicine_name": "Aceta",
+          "generic_name": "Paracetamol",
+          "dimensions": [
+            216,
+            69
+          ],
+          "mode": "RGB",
+          "sha256": "5364628655bccdc6..."
+        },
+        {
+          "image_filename": "1.png",
+          "medicine_name": "Aceta",
+          "generic_name": "Paracetamol",
+          "dimensions": [
+            283,
+            143
+          ],
+          "mode": "RGB",
+          "sha256": "1815ce7c9aff4dfc..."
+        },
+        {
+          "image_filename": "2.png",
+          "medicine_name": "Aceta",
+          "generic_name": "Paracetamol",
+          "dimensions": [
+            200,
+            77
+          ],
+          "mode": "RGB",
+          "sha256": "9fbdfb39570985ba..."
+        },
+        {
+          "image_filename": "3.png",
+          "medicine_name": "Aceta",
+          "generic_name": "Paracetamol",
+          "dimensions": [
+            194,
+            78
+          ],
+          "mode": "RGB",
+          "sha256": "d2ecdd2aeee9abe3..."
+        },
+        {
+          "image_filename": "4.png",
+          "medicine_name": "Aceta",
+          "generic_name": "Paracetamol",
+          "dimensions": [
+            183,
+            85
+          ],
+          "mode": "RGB",
+          "sha256": "62e51d336359f68f..."
+        }
+      ],
+      "top_medicine_counts": {
+        "Aceta": 10,
+        "Ace": 10,
+        "Alatrol": 10,
+        "Amodis": 10,
+        "Atrizin": 10,
+        "Axodin": 10,
+        "Azithrocin": 10,
+        "Azyth": 10,
+        "Az": 10,
+        "Bacaid": 10
+      },
+      "generic_counts": {
+        "Esomeprazole": 100,
+        "Fexofenadine Hydrochloride": 90,
+        "Montelukast Sodium": 90,
+        "Baclofen": 80,
+        "Fluconazole": 70,
+        "Paracetamol": 60,
+        "Metronidazole": 60,
+        "Azithromycin Dihydrate": 60,
+        "Cetirizine Hydrochloride": 50,
+        "Clonazepam": 40,
+        "Ketoconazole (Shampoo)": 30,
+        "Ketoconazole (Tablet)": 20,
+        "Vitamin B Complex + Zinc": 10,
+        "Ketoconazole (Cream)": 10,
+        "Azithromycin Dihydrate (Ophthalmic)": 10
+      }
+    },
+    "testing": {
+      "sample_count": 780,
+      "images_verified": 780,
+      "missing_images": 0,
+      "corrupt_images": 0,
+      "unique_medicines": 78,
+      "unique_generics": 15,
+      "dimensions": {
+        "min_width": 43,
+        "max_width": 1298,
+        "mean_width": 162.99,
+        "median_width": 158.0,
+        "min_height": 13,
+        "max_height": 293,
+        "mean_height": 55.8,
+        "median_height": 56.0
+      },
+      "image_modes": {
+        "RGBA": 499,
+        "RGB": 43,
+        "L": 238
+      },
+      "within_split_duplicate_images": 33,
+      "representative_samples": [
+        {
+          "image_filename": "0.png",
+          "medicine_name": "Aceta",
+          "generic_name": "Paracetamol",
+          "dimensions": [
+            208,
+            103
+          ],
+          "mode": "RGBA",
+          "sha256": "005db31e20d2e368..."
+        },
+        {
+          "image_filename": "1.png",
+          "medicine_name": "Aceta",
+          "generic_name": "Paracetamol",
+          "dimensions": [
+            227,
+            84
+          ],
+          "mode": "RGBA",
+          "sha256": "ca760232276ab28c..."
+        },
+        {
+          "image_filename": "2.png",
+          "medicine_name": "Aceta",
+          "generic_name": "Paracetamol",
+          "dimensions": [
+            232,
+            114
+          ],
+          "mode": "RGBA",
+          "sha256": "eafa46325bcefc36..."
+        },
+        {
+          "image_filename": "3.png",
+          "medicine_name": "Aceta",
+          "generic_name": "Paracetamol",
+          "dimensions": [
+            207,
+            80
+          ],
+          "mode": "RGBA",
+          "sha256": "d1d932a1e1830390..."
+        },
+        {
+          "image_filename": "4.png",
+          "medicine_name": "Aceta",
+          "generic_name": "Paracetamol",
+          "dimensions": [
+            160,
+            81
+          ],
+          "mode": "RGB",
+          "sha256": "24909b5739781831..."
+        }
+      ],
+      "top_medicine_counts": {
+        "Aceta": 10,
+        "Ace": 10,
+        "Alatrol": 10,
+        "Amodis": 10,
+        "Atrizin": 10,
+        "Axodin": 10,
+        "Azithrocin": 10,
+        "Azyth": 10,
+        "Az": 10,
+        "Bacaid": 10
+      },
+      "generic_counts": {
+        "Esomeprazole": 100,
+        "Fexofenadine Hydrochloride": 90,
+        "Montelukast Sodium": 90,
+        "Baclofen": 80,
+        "Fluconazole": 70,
+        "Paracetamol": 60,
+        "Metronidazole": 60,
+        "Azithromycin Dihydrate": 60,
+        "Cetirizine Hydrochloride": 50,
+        "Clonazepam": 40,
+        "Ketoconazole (Shampoo)": 30,
+        "Ketoconazole (Tablet)": 20,
+        "Vitamin B Complex + Zinc": 10,
+        "Ketoconazole (Cream)": 10,
+        "Azithromycin Dihydrate (Ophthalmic)": 10
+      }
+    }
+  },
+  "cross_split_duplicates_count": 55,
+  "cross_split_duplicates": [
+    {
+      "hash_prefix": "5364628655bccdc6",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "6.png",
+          "medicine": "Aceta"
+        },
+        {
+          "split": "validation",
+          "filename": "0.png",
+          "medicine": "Aceta"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "e81b4e42278ecdc2",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "496.png",
+          "medicine": "Baclon"
+        },
+        {
+          "split": "training",
+          "filename": "509.png",
+          "medicine": "Baclon"
+        },
+        {
+          "split": "validation",
+          "filename": "122.png",
+          "medicine": "Baclon"
+        },
+        {
+          "split": "validation",
+          "filename": "123.png",
+          "medicine": "Baclon"
+        },
+        {
+          "split": "validation",
+          "filename": "125.png",
+          "medicine": "Baclon"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "6431c131364f1faf",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "521.png",
+          "medicine": "Bacmax"
+        },
+        {
+          "split": "validation",
+          "filename": "139.png",
+          "medicine": "Bacmax"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "1fe9e1e8feb1f888",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "633.png",
+          "medicine": "Bicozin"
+        },
+        {
+          "split": "testing",
+          "filename": "150.png",
+          "medicine": "Bicozin"
+        },
+        {
+          "split": "testing",
+          "filename": "152.png",
+          "medicine": "Bicozin"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "f6e645ddf23c5887",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "859.png",
+          "medicine": "Denixil"
+        },
+        {
+          "split": "testing",
+          "filename": "218.png",
+          "medicine": "Denixil"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "098eb214179efcb6",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "1023.png",
+          "medicine": "Esonix"
+        },
+        {
+          "split": "testing",
+          "filename": "255.png",
+          "medicine": "Esonix"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "e76c30beeaa00b60",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "1170.png",
+          "medicine": "Fenadin"
+        },
+        {
+          "split": "testing",
+          "filename": "293.png",
+          "medicine": "Fenadin"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "dc5b4be7f4b65185",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "1201.png",
+          "medicine": "Fexofast"
+        },
+        {
+          "split": "validation",
+          "filename": "309.png",
+          "medicine": "Fexofast"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "d09489089067dc96",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "1240.png",
+          "medicine": "Fexo"
+        },
+        {
+          "split": "testing",
+          "filename": "291.png",
+          "medicine": "Fenadin"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "d63c3d5ac37d3ac5",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "1323.png",
+          "medicine": "Fixal"
+        },
+        {
+          "split": "testing",
+          "filename": "333.png",
+          "medicine": "Fixal"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "459ee43b60c4a734",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "1433.png",
+          "medicine": "Flexibac"
+        },
+        {
+          "split": "testing",
+          "filename": "350.png",
+          "medicine": "Flexibac"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "c92aa65d8b4218b2",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "1509.png",
+          "medicine": "Flugal"
+        },
+        {
+          "split": "testing",
+          "filename": "374.png",
+          "medicine": "Flugal"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "6340965174df431e",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "1608.png",
+          "medicine": "Ketotab"
+        },
+        {
+          "split": "training",
+          "filename": "1612.png",
+          "medicine": "Ketotab"
+        },
+        {
+          "split": "validation",
+          "filename": "408.png",
+          "medicine": "Ketotab"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "78cb8f79c4ff008f",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "1622.png",
+          "medicine": "Ketotab"
+        },
+        {
+          "split": "training",
+          "filename": "1634.png",
+          "medicine": "Ketotab"
+        },
+        {
+          "split": "validation",
+          "filename": "409.png",
+          "medicine": "Ketotab"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "640eeef5b639dc35",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "1623.png",
+          "medicine": "Ketotab"
+        },
+        {
+          "split": "validation",
+          "filename": "407.png",
+          "medicine": "Ketotab"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "36f0bb04a886862b",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "1645.png",
+          "medicine": "Ketozol"
+        },
+        {
+          "split": "validation",
+          "filename": "419.png",
+          "medicine": "Ketozol"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "d2fb371beb0d6d53",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "1793.png",
+          "medicine": "Lumona"
+        },
+        {
+          "split": "testing",
+          "filename": "440.png",
+          "medicine": "Lumona"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "a36c4ae4402effc9",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "1841.png",
+          "medicine": "Maxima"
+        },
+        {
+          "split": "training",
+          "filename": "1872.png",
+          "medicine": "Maxima"
+        },
+        {
+          "split": "testing",
+          "filename": "464.png",
+          "medicine": "Maxima"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "fb71480b4761ba81",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "1848.png",
+          "medicine": "Maxima"
+        },
+        {
+          "split": "training",
+          "filename": "1856.png",
+          "medicine": "Maxima"
+        },
+        {
+          "split": "validation",
+          "filename": "468.png",
+          "medicine": "Maxima"
+        }
+      ]
+    },
+    {
+      "hash_prefix": "bb38d442e4b07616",
+      "occurrences": [
+        {
+          "split": "training",
+          "filename": "1849.png",
+          "medicine": "Maxima"
+        },
+        {
+          "split": "validation",
+          "filename": "467.png",
+          "medicine": "Maxima"
+        }
+      ]
+    }
+  ],
+  "audit_summary": {
+    "images_verified": 4680,
+    "corrupt_images": 0,
+    "missing_images": 0,
+    "data_health_status": "EXCELLENT (0 corrupt, 0 missing)"
+  }
+}

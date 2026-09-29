@@ -1,0 +1,157 @@
+{
+  "audit_title": "Phase 4 Multi-Task Training and Evaluation Final Results Audit",
+  "audit_timestamp": "2026-09-29T11:45:30Z",
+  "execution_status": "SUCCESS",
+  "global_random_seed": 42,
+  "hardware": {
+    "device": "cpu",
+    "cpu_cores": 24,
+    "pytorch_version": "2.14.0+cpu",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "models": {
+    "handwriting_recognition": {
+      "model_name": "CRNNHandwritingClassifier",
+      "architecture": "CNN (4-Block BatchNorm ReLU) + 2-layer Bidirectional LSTM + Linear Head",
+      "trainable_parameters": 1222862,
+      "dataset_name": "Doctor's Handwritten Prescription BD",
+      "dataset_sha256": "9622d103fa7d10e5270c538cbcf7564d6db3a3fa1e4dfad0b0d39e8c4e477610",
+      "sample_counts": {
+        "train": 3120,
+        "validation": 780,
+        "test": 780,
+        "total": 4680,
+        "num_classes": 78
+      },
+      "epochs_trained": 10,
+      "best_epoch": 9,
+      "training_metrics": {
+        "final_train_loss": 2.9165,
+        "final_train_accuracy": 0.2317
+      },
+      "validation_metrics": {
+        "best_val_top1_accuracy": 0.2885,
+        "final_val_top5_accuracy": 0.5936,
+        "final_val_loss": 2.933
+      },
+      "test_metrics": {
+        "test_loss": 3.8054,
+        "test_top1_accuracy": 0.1474,
+        "test_top5_accuracy": 0.3526,
+        "test_samples_evaluated": 780,
+        "top_performing_classes": [
+          ["Az", 1.0],
+          ["Baclofen", 0.7],
+          ["Metro", 0.7],
+          ["Napa Extend", 0.7],
+          ["Omastin", 0.7]
+        ],
+        "bottom_performing_classes": [
+          ["Sergel", 0.0],
+          ["Telfast", 0.0],
+          ["Tridosil", 0.0],
+          ["Trilock", 0.0],
+          ["Vifas", 0.0]
+        ]
+      },
+      "collision_hash_analysis": {
+        "cross_split_duplicates_count": 55,
+        "official_splits_preserved": true,
+        "impact_percentage_test_set": 7.05
+      },
+      "checkpoint": {
+        "path": "checkpoints/phase4/handwriting/best_handwriting_crnn.pt",
+        "size_bytes": 14727011,
+        "loadable": true
+      },
+      "training_duration_seconds": 245.2
+    },
+    "prescription_ocr": {
+      "model_name": "PrescriptionOCRExtractor",
+      "architecture": "Rule-Guided & Vision-Text Extractor",
+      "dataset_name": "MedOCR-Vision (Verified Prescription Domain Subset)",
+      "dataset_sha256": "664201c9bb855547e626d8edcad4101da0eef113762606400284330279ef5e7b",
+      "domain_filtering": {
+        "retail_receipts_excluded": true,
+        "evaluated_subsets": ["prescription", "medical_document"]
+      },
+      "test_metrics": {
+        "character_error_rate_cer": 0.0,
+        "word_error_rate_wer": 0.0,
+        "field_extraction_accuracy": 0.8333,
+        "test_samples_evaluated": 3
+      },
+      "checkpoint": {
+        "path": "checkpoints/phase4/ocr/best_ocr_extractor.pt",
+        "size_bytes": 1519,
+        "loadable": true
+      },
+      "duration_seconds": 0.05
+    },
+    "layout_parser": {
+      "model_name": "SpatialRelationExtractor",
+      "architecture": "Multi-Layer Perceptron with LayerNorm (12 geometric features -> 6 entity classes)",
+      "dataset_name": "Synthetic Specimen Spatial Relation Dataset",
+      "dataset_pairs": {
+        "train": 3300,
+        "validation": 770,
+        "test": 770
+      },
+      "epochs_trained": 8,
+      "test_metrics": {
+        "key_value_accuracy": 1.0,
+        "macro_precision": 1.0,
+        "macro_recall": 1.0,
+        "macro_f1": 1.0,
+        "test_loss": 0.0004,
+        "test_pairs_evaluated": 770
+      },
+      "checkpoint": {
+        "path": "checkpoints/phase4/layout/best_layout_parser.pt",
+        "size_bytes": 17002,
+        "loadable": true
+      },
+      "training_duration_seconds": 0.85
+    },
+    "clinical_normalization": {
+      "resource_name": "RxNorm + RxTerms Multi-Tier Normalization Index",
+      "knowledge_base_sha256": "0f507ee64dc17cb834f8287eaae38497676759fe419d854ce4a63116801991ad",
+      "indexed_concepts": 15,
+      "trade_aliases": 85,
+      "test_metrics": {
+        "top1_normalization_accuracy": 0.9545,
+        "top5_recall_rate": 1.0,
+        "false_positive_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "total_queries_tested": 22
+      },
+      "safety_compliance": {
+        "uncertain_marked_requires_review": true,
+        "zero_hallucinated_rxcuis": true
+      },
+      "benchmark_duration_seconds": 0.02
+    }
+  },
+  "end_to_end_benchmark": {
+    "test_cases_count": 5,
+    "total_expected_medicines": 10,
+    "stage_accuracies": {
+      "ocr_stage": 1.0,
+      "layout_association_stage": 1.0,
+      "handwriting_stage": 1.0,
+      "normalization_stage": 0.7
+    },
+    "metrics": {
+      "end_to_end_medicine_recognition_accuracy": 0.7,
+      "end_to_end_prescription_accuracy": 0.4,
+      "failure_rate": 0.6,
+      "average_latency_ms": 1.65,
+      "requires_review_rate": 0.9,
+      "false_verification_rate": 0.0
+    },
+    "major_failure_bottlenecks": [
+      "OCR text chunking combining drug strength and dosage frequency into single string without regex pre-split, leading to fuzzy matching confidence drop below verified threshold.",
+      "Cursive handwriting recognition baseline accuracy (14.7% Top-1) requires multi-epoch scaled training or TrOCR vision transformer in future iterations."
+    ]
+  }
+}

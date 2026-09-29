@@ -1,0 +1,85 @@
+{
+  "manifest_name": "Clinical Drug Knowledge Base Manifest (Phase 6)",
+  "authorities": [
+    "FDA DailyMed",
+    "US National Library of Medicine (NLM / RxNorm)"
+  ],
+  "knowledge_base_sha256": "74052756a396f560c62bfc779d9e623f0b4073fefd60420113f0507e68411df5",
+  "total_documents": 8,
+  "total_chunks": 60,
+  "chunking_strategy": "Medical Section-Aware Boundary Chunker (Indications, Dosage, Contraindications, Adverse Reactions, Interactions)",
+  "documents": [
+    {
+      "source_id": "DAILYMED_AMOXICILLIN_500",
+      "title": "Amoxicillin 500 MG Oral Tablet / Capsule",
+      "rxcui": "308189",
+      "ingredient": "Amoxicillin",
+      "sections_count": 8,
+      "generated_chunks_count": 8,
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=amoxicillin-oral"
+    },
+    {
+      "source_id": "DAILYMED_PARACETAMOL_650",
+      "title": "Acetaminophen (Paracetamol) 650 MG Oral Tablet",
+      "rxcui": "161",
+      "ingredient": "Paracetamol",
+      "sections_count": 8,
+      "generated_chunks_count": 8,
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=acetaminophen-oral"
+    },
+    {
+      "source_id": "DAILYMED_METFORMIN_500",
+      "title": "Metformin Hydrochloride 500 MG Oral Tablet",
+      "rxcui": "860975",
+      "ingredient": "Metformin",
+      "sections_count": 7,
+      "generated_chunks_count": 7,
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=metformin-oral"
+    },
+    {
+      "source_id": "DAILYMED_PANTOPRAZOLE_40",
+      "title": "Pantoprazole Sodium 40 MG Delayed-Release Tablet",
+      "rxcui": "312615",
+      "ingredient": "Pantoprazole",
+      "sections_count": 7,
+      "generated_chunks_count": 7,
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=pantoprazole-dr-oral"
+    },
+    {
+      "source_id": "DAILYMED_AZITHROMYCIN_500",
+      "title": "Azithromycin 500 MG Oral Tablet",
+      "rxcui": "198440",
+      "ingredient": "Azithromycin",
+      "sections_count": 7,
+      "generated_chunks_count": 7,
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=azithromycin-oral"
+    },
+    {
+      "source_id": "DAILYMED_CETIRIZINE_10",
+      "title": "Cetirizine Hydrochloride 10 MG Oral Tablet",
+      "rxcui": "310489",
+      "ingredient": "Cetirizine",
+      "sections_count": 7,
+      "generated_chunks_count": 7,
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cetirizine-oral"
+    },
+    {
+      "source_id": "DAILYMED_ATORVASTATIN_10",
+      "title": "Atorvastatin Calcium 10 MG Oral Tablet",
+      "rxcui": "310798",
+      "ingredient": "Atorvastatin",
+      "sections_count": 8,
+      "generated_chunks_count": 8,
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=atorvastatin-oral"
+    },
+    {
+      "source_id": "DAILYMED_WARFARIN_5",
+      "title": "Warfarin Sodium 5 MG Oral Tablet",
+      "rxcui": "11289",
+      "ingredient": "Warfarin",
+      "sections_count": 8,
+      "generated_chunks_count": 8,
+      "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=warfarin-oral"
+    }
+  ]
+}

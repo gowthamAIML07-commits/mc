@@ -1,0 +1,108 @@
+# Phase 4 Multi-Task Training & Evaluation Configuration
+# AI Medicine Assistant Production Pipeline
+
+reproducibility:
+  global_seed: 42
+  deterministic_cudnn: true
+  benchmark_cudnn: false
+  python_hash_seed: 42
+
+environment:
+  device: "cpu" # Options: cpu, cuda, auto
+  num_workers: 4
+  mixed_precision: false # Set true for GPU fp16 / bf16
+  pin_memory: false
+
+directories:
+  raw_data_root: "data/raw"
+  processed_data_root: "data/processed"
+  manifests_root: "data/manifests"
+  prototype_checkpoints_root: "checkpoints/prototype"
+  checkpoints_root: "checkpoints/phase4"
+  reports_root: "reports/training/phase4"
+  docs_root: "docs/ml"
+
+pipelines:
+  handwriting_recognition:
+    enabled: true
+    task_name: "Handwritten Medicine Brand Recognition"
+    dataset_key: "bd_handwritten"
+    dataset_manifest: "data/manifests/handwriting_dataset.json"
+    raw_dataset_path: "data/raw/bd_handwritten"
+    class_mapping_path: "data/processed/bd_handwritten/class_mapping.json"
+    model_architecture: "CRNN_CNN_BiLSTM"
+    image_height: 64
+    image_width: 192
+    in_channels: 3
+    num_classes: 78
+    rnn_hidden_dim: 128
+    rnn_layers: 2
+    dropout: 0.25
+    training:
+      batch_size: 64
+      epochs: 10
+      learning_rate: 0.001
+      weight_decay: 0.0001
+      optimizer: "AdamW"
+      scheduler: "CosineAnnealingLR"
+      t_max: 10
+      min_lr: 0.00001
+      early_stopping_patience: 5
+      eval_every_epochs: 1
+      checkpoint_best_metric: "val_top1_accuracy"
+      mode: "max"
+    evaluation:
+      top_k: [1, 5]
+      record_collision_impact: true
+
+  prescription_ocr:
+    enabled: true
+    task_name: "Prescription Form & Text OCR"
+    dataset_key: "medocr_vision"
+    dataset_manifest: "data/manifests/medocr_vision_audit.json"
+    raw_dataset_path: "data/raw/indian_medical_prescription_ocr"
+    filtered_domain: "prescription" # Excludes retail receipts from benchmark
+    model_architecture: "VisionText_Transformer_Extractor"
+    training:
+      batch_size: 16
+      epochs: 5
+      learning_rate: 0.0005
+      optimizer: "AdamW"
+    evaluation:
+      metrics: ["cer", "wer", "field_extraction_accuracy"]
+
+  layout_parsing:
+    enabled: true
+    task_name: "Prescription Spatial Entity & Field Association"
+    dataset_key: "synthetic_rx_layout"
+    dataset_manifest: "data/processed/synthetic_rx_specimen/manifest.json"
+    processed_dataset_path: "data/processed/synthetic_rx_specimen"
+    model_architecture: "Spatial_Relation_Classifier"
+    feature_dim: 16
+    hidden_dim: 64
+    training:
+      batch_size: 32
+      epochs: 8
+      learning_rate: 0.002
+      optimizer: "AdamW"
+    evaluation:
+      metrics: ["key_value_accuracy", "precision", "recall", "f1"]
+
+  medicine_normalization:
+    enabled: true
+    task_name: "RxNorm / RxTerms Clinical Entity Normalization"
+    resource_manifest: "data/manifests/rxnorm_rxterms_manifest.json"
+    knowledge_base_path: "data/processed/normalization/normalized_medicines.json"
+    index_path: "data/processed/normalization/lexical_index.json"
+    approved_vocabulary_path: "data/processed/normalization/approved_vocabulary.json"
+    abbreviations_path: "data/processed/normalization/abbreviations.json"
+    matching_tiers:
+      - "abbreviation_resolution"
+      - "exact_hash"
+      - "exact_sanitized"
+      - "phonetic_metaphone"
+      - "fuzzy_levenshtein"
+    min_confidence_threshold: 0.70
+    uncertain_fallback_status: "REQUIRES_REVIEW"
+    evaluation:
+      test_suite: "clinical_ocr_benchmark"

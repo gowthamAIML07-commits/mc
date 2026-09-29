@@ -1,0 +1,81 @@
+{
+  "pipeline_name": "Handwritten Medicine Recognition",
+  "model_id": "Model_B_CRNN_BiLSTM",
+  "dataset_name": "Doctor's Handwritten Prescription BD",
+  "dataset_version": "v1.0",
+  "dataset_sha256": "edacede65ef6f32dedd5d5f9e1430ab33695b80ab702ea8892b548ae265a0eef",
+  "training_seed": 42,
+  "training_time_seconds": 97.12,
+  "hardware_information": {
+    "os_name": "Windows",
+    "os_release": "11",
+    "os_version": "10.0.26200",
+    "architecture": "AMD64",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "cpu_count_logical": 24,
+    "python_version": "3.14.6",
+    "pytorch_version": "2.14.0+cpu",
+    "cuda_available": false,
+    "device_count": 0,
+    "device_name": "CPU"
+  },
+  "model_configuration": {
+    "architecture": "CRNN_CNN_BiLSTM",
+    "num_classes": 78,
+    "epochs": 4,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "optimizer": "AdamW",
+    "loss_fn": "CrossEntropyLoss"
+  },
+  "training_metrics": {
+    "final_train_loss": 3.7507,
+    "final_train_acc": 0.0708,
+    "epoch_history": [
+      {
+        "epoch": 1,
+        "train_loss": 4.2649,
+        "train_acc": 0.0202,
+        "val_loss": 4.1866,
+        "val_top1_acc": 0.0295,
+        "val_top5_acc": 0.1256
+      },
+      {
+        "epoch": 2,
+        "train_loss": 4.1033,
+        "train_acc": 0.0282,
+        "val_loss": 4.031,
+        "val_top1_acc": 0.0462,
+        "val_top5_acc": 0.1744
+      },
+      {
+        "epoch": 3,
+        "train_loss": 3.9369,
+        "train_acc": 0.0506,
+        "val_loss": 4.4346,
+        "val_top1_acc": 0.0385,
+        "val_top5_acc": 0.1487
+      },
+      {
+        "epoch": 4,
+        "train_loss": 3.7507,
+        "train_acc": 0.0708,
+        "val_loss": 3.6417,
+        "val_top1_acc": 0.1154,
+        "val_top5_acc": 0.3795
+      }
+    ]
+  },
+  "validation_metrics": {
+    "best_val_top1_accuracy": 0.1154,
+    "final_val_top5_accuracy": 0.3795,
+    "final_val_loss": 3.6417
+  },
+  "test_metrics": {
+    "test_top1_accuracy": 0.0744,
+    "test_top5_accuracy": 0.2077,
+    "test_loss": 4.2036,
+    "test_samples_evaluated": 780
+  },
+  "checkpoint_path": "checkpoints\\handwriting\\best_handwriting_crnn.pt"
+}

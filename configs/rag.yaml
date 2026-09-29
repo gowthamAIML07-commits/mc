@@ -1,0 +1,63 @@
+# RAG & Vector Knowledge Base Configuration
+
+qdrant:
+  host: "${QDRANT_HOST:-localhost}"
+  port: 6333
+  grpc_port: 6334
+  api_key: "${QDRANT_API_KEY:-}"
+  prefer_grpc: false
+  timeout_seconds: 15
+
+collections:
+  drug_information:
+    name: "drug_information"
+    vector_size: 1024
+    distance: "Cosine"
+    description: "Official FDA DailyMed & CDSCO approved prescribing monographs"
+    hnsw_m: 16
+    hnsw_ef_construct: 100
+
+  medical_documents:
+    name: "medical_documents"
+    vector_size: 1024
+    distance: "Cosine"
+    description: "Clinical guidelines and hospital treatment consensus documents"
+    hnsw_m: 16
+    hnsw_ef_construct: 100
+
+  clinical_literature:
+    name: "clinical_literature"
+    vector_size: 1024
+    distance: "Cosine"
+    description: "PubMed Central Open Access pharmacology and clinical trial publications"
+    hnsw_m: 16
+    hnsw_ef_construct: 100
+
+  faq:
+    name: "faq"
+    vector_size: 1024
+    distance: "Cosine"
+    description: "MedlinePlus and authoritative patient-oriented Q&A pairs"
+    hnsw_m: 16
+    hnsw_ef_construct: 100
+
+ingestion:
+  chunk_size_tokens: 512
+  chunk_overlap_tokens: 64
+  split_by_headers: true
+  preserve_clinical_sections: true
+  allowed_document_formats:
+    - ".xml"
+    - ".json"
+    - ".pdf"
+    - ".html"
+    - ".txt"
+
+retrieval:
+  hybrid_search: true
+  dense_top_k: 25
+  sparse_top_k: 25
+  rrf_k_parameter: 60
+  rerank_enabled: true
+  rerank_top_n: 5
+  rerank_min_score: 0.65

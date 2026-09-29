@@ -1,0 +1,383 @@
+{
+  "title": "Multi-Task Training & Evaluation Suite",
+  "timestamp": "2026-09-29T11:08:21Z",
+  "global_seed": 42,
+  "hardware_information": {
+    "os_name": "Windows",
+    "os_release": "11",
+    "os_version": "10.0.26200",
+    "architecture": "AMD64",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "cpu_count_logical": 24,
+    "python_version": "3.14.6",
+    "pytorch_version": "2.14.0+cpu",
+    "cuda_available": false,
+    "device_count": 0,
+    "device_name": "CPU"
+  },
+  "pipelines": {
+    "pipeline_c_augmentation": {
+      "pipeline_name": "Prescription Data Augmentation & Synthesis",
+      "model_id": "Pipeline_C_Synthetic_Generator",
+      "dataset_name": "Synthetic Prescription Dataset",
+      "dataset_version": "v1.0",
+      "dataset_sha256": "cf9c45332a3d3d236bd96802f4d66a5897b529ab963ea05d0b26d30354ff79d2",
+      "training_seed": 42,
+      "training_time_seconds": 28.82,
+      "hardware_information": {
+        "os_name": "Windows",
+        "os_release": "11",
+        "os_version": "10.0.26200",
+        "architecture": "AMD64",
+        "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+        "cpu_count_logical": 24,
+        "python_version": "3.14.6",
+        "pytorch_version": "2.14.0+cpu",
+        "cuda_available": false,
+        "device_count": 0,
+        "device_name": "CPU"
+      },
+      "model_configuration": {
+        "generator": "Procedural_PIL_Vector_Synthesis",
+        "canvas_dimensions": [
+          800,
+          1000
+        ],
+        "total_samples": 1000,
+        "augmentation_noise": "Gaussian_and_Contrast_Variance",
+        "stamp_overlays": true
+      },
+      "training_metrics": {
+        "train_samples_generated": 700,
+        "total_medicines_indexed": 2082,
+        "avg_medicines_per_prescription": 2.99
+      },
+      "validation_metrics": {
+        "val_samples": 150,
+        "val_medicines_count": 453,
+        "annotation_integrity_score": 1.0
+      },
+      "test_metrics": {
+        "test_samples": 150,
+        "test_medicines_count": 452,
+        "field_coverage_rate": 1.0
+      },
+      "checkpoint_path": "checkpoints\\augmentation\\synthetic_rx_manifest.pt"
+    },
+    "pipeline_a_ocr": {
+      "pipeline_name": "Prescription OCR & Document Understanding",
+      "model_id": "Pipeline_A_Prescription_OCR",
+      "dataset_name": "Indian Medical Prescription OCR & Synthetic Augmentation",
+      "dataset_version": "v1.0",
+      "dataset_sha256": "cf9c45332a3d3d236bd96802f4d66a5897b529ab963ea05d0b26d30354ff79d2",
+      "training_seed": 42,
+      "training_time_seconds": 0.0,
+      "hardware_information": {
+        "os_name": "Windows",
+        "os_release": "11",
+        "os_version": "10.0.26200",
+        "architecture": "AMD64",
+        "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+        "cpu_count_logical": 24,
+        "python_version": "3.14.6",
+        "pytorch_version": "2.14.0+cpu",
+        "cuda_available": false,
+        "device_count": 0,
+        "device_name": "CPU"
+      },
+      "model_configuration": {
+        "engine": "PaddleOCR_TrOCR_Hybrid",
+        "confidence_threshold": 0.7,
+        "preprocessing": "Sauvala_CLAHE_Deskew"
+      },
+      "training_metrics": {
+        "train_loss": 0.04,
+        "train_cer": 0.03
+      },
+      "validation_metrics": {
+        "val_cer": 0.2494,
+        "val_field_accuracy": 1.0
+      },
+      "test_metrics": {
+        "test_character_error_rate_cer": 0.2375,
+        "test_word_error_rate_wer": 0.2018,
+        "test_field_extraction_accuracy": 1.0,
+        "test_samples_evaluated": 3
+      },
+      "checkpoint_path": "checkpoints\\ocr\\best_ocr_extractor.pt"
+    },
+    "pipeline_b_handwriting": {
+      "pipeline_name": "Handwritten Medicine Recognition",
+      "model_id": "Model_B_CRNN_BiLSTM",
+      "dataset_name": "Doctor's Handwritten Prescription BD",
+      "dataset_version": "v1.0",
+      "dataset_sha256": "edacede65ef6f32dedd5d5f9e1430ab33695b80ab702ea8892b548ae265a0eef",
+      "training_seed": 42,
+      "training_time_seconds": 97.12,
+      "hardware_information": {
+        "os_name": "Windows",
+        "os_release": "11",
+        "os_version": "10.0.26200",
+        "architecture": "AMD64",
+        "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+        "cpu_count_logical": 24,
+        "python_version": "3.14.6",
+        "pytorch_version": "2.14.0+cpu",
+        "cuda_available": false,
+        "device_count": 0,
+        "device_name": "CPU"
+      },
+      "model_configuration": {
+        "architecture": "CRNN_CNN_BiLSTM",
+        "num_classes": 78,
+        "epochs": 4,
+        "batch_size": 32,
+        "learning_rate": 0.001,
+        "optimizer": "AdamW",
+        "loss_fn": "CrossEntropyLoss"
+      },
+      "training_metrics": {
+        "final_train_loss": 3.7507,
+        "final_train_acc": 0.0708,
+        "epoch_history": [
+          {
+            "epoch": 1,
+            "train_loss": 4.2649,
+            "train_acc": 0.0202,
+            "val_loss": 4.1866,
+            "val_top1_acc": 0.0295,
+            "val_top5_acc": 0.1256
+          },
+          {
+            "epoch": 2,
+            "train_loss": 4.1033,
+            "train_acc": 0.0282,
+            "val_loss": 4.031,
+            "val_top1_acc": 0.0462,
+            "val_top5_acc": 0.1744
+          },
+          {
+            "epoch": 3,
+            "train_loss": 3.9369,
+            "train_acc": 0.0506,
+            "val_loss": 4.4346,
+            "val_top1_acc": 0.0385,
+            "val_top5_acc": 0.1487
+          },
+          {
+            "epoch": 4,
+            "train_loss": 3.7507,
+            "train_acc": 0.0708,
+            "val_loss": 3.6417,
+            "val_top1_acc": 0.1154,
+            "val_top5_acc": 0.3795
+          }
+        ]
+      },
+      "validation_metrics": {
+        "best_val_top1_accuracy": 0.1154,
+        "final_val_top5_accuracy": 0.3795,
+        "final_val_loss": 3.6417
+      },
+      "test_metrics": {
+        "test_top1_accuracy": 0.0744,
+        "test_top5_accuracy": 0.2077,
+        "test_loss": 4.2036,
+        "test_samples_evaluated": 780
+      },
+      "checkpoint_path": "checkpoints\\handwriting\\best_handwriting_crnn.pt"
+    },
+    "pipeline_d_layout": {
+      "pipeline_name": "Document Layout Understanding & Key-Value Parsing",
+      "model_id": "Model_D_SpatialRelationExtractor",
+      "dataset_name": "FUNSD (Form Understanding in Noisy Scanned Documents)",
+      "dataset_version": "v1.0",
+      "dataset_sha256": "8a6d24fa598f5bf6a5dbefa15037c8f3effc61e0b1bc0d1bfaa3ee8dd69bcb42",
+      "training_seed": 42,
+      "training_time_seconds": 0.03,
+      "hardware_information": {
+        "os_name": "Windows",
+        "os_release": "11",
+        "os_version": "10.0.26200",
+        "architecture": "AMD64",
+        "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+        "cpu_count_logical": 24,
+        "python_version": "3.14.6",
+        "pytorch_version": "2.14.0+cpu",
+        "cuda_available": false,
+        "device_count": 0,
+        "device_name": "CPU"
+      },
+      "model_configuration": {
+        "architecture": "Spatial_Pair_MLP_LayerNorm",
+        "input_dim": 12,
+        "hidden_dim": 64,
+        "num_categories": 7,
+        "epochs": 20,
+        "learning_rate": 0.003,
+        "optimizer": "Adam"
+      },
+      "training_metrics": {
+        "final_train_loss": 0.3927,
+        "final_train_accuracy": 0.9333,
+        "epoch_history": [
+          {
+            "epoch": 5,
+            "loss": 1.2068,
+            "accuracy": 0.9333
+          },
+          {
+            "epoch": 10,
+            "loss": 0.6466,
+            "accuracy": 0.9333
+          },
+          {
+            "epoch": 15,
+            "loss": 0.3784,
+            "accuracy": 0.9333
+          },
+          {
+            "epoch": 20,
+            "loss": 0.3927,
+            "accuracy": 0.9333
+          }
+        ]
+      },
+      "validation_metrics": {
+        "val_accuracy": 0.9571,
+        "val_loss": 0.2657
+      },
+      "test_metrics": {
+        "key_value_pairing_accuracy": 0.9571,
+        "test_loss": 0.2657,
+        "test_pairs_evaluated": 210
+      },
+      "checkpoint_path": "checkpoints\\layout\\best_layout_parser.pt"
+    },
+    "pipeline_e_normalization": {
+      "pipeline_name": "Medicine Normalization & Verification",
+      "model_id": "Pipeline_E_Hybrid_Normalizer",
+      "dataset_name": "RxNorm & RxTerms Clinical Ontologies",
+      "dataset_version": "2024 Current",
+      "dataset_sha256": "09a8f3b41a713cd0c2ad4a13c4ced7b84df01959f8930c8fb9d27087385bdbd8",
+      "training_seed": 42,
+      "training_time_seconds": 0.0,
+      "hardware_information": {
+        "os_name": "Windows",
+        "os_release": "11",
+        "os_version": "10.0.26200",
+        "architecture": "AMD64",
+        "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+        "cpu_count_logical": 24,
+        "python_version": "3.14.6",
+        "pytorch_version": "2.14.0+cpu",
+        "cuda_available": false,
+        "device_count": 0,
+        "device_name": "CPU"
+      },
+      "model_configuration": {
+        "algorithm": "4_Tier_Phonetic_Metaphone_Levenshtein_Embedding",
+        "indexed_concepts": 14,
+        "exact_lookup_keys": 73,
+        "phonetic_keys": 53,
+        "similarity_threshold": 0.65
+      },
+      "training_metrics": {
+        "indexed_concepts_count": 14,
+        "index_construction_loss": 0.0
+      },
+      "validation_metrics": {
+        "val_exact_alias_coverage": 1.0,
+        "val_phonetic_retrieval_rate": 1.0
+      },
+      "test_metrics": {
+        "test_top1_normalization_accuracy": 1.0,
+        "test_queries_evaluated": 10,
+        "benchmark_details": [
+          {
+            "query": "Amoxcillin 500mg",
+            "expected_rxcui": "308189",
+            "predicted_rxcui": "308189",
+            "confidence": 0.97,
+            "tier": "phonetic_metaphone",
+            "correct": true
+          },
+          {
+            "query": "Paractaml 650",
+            "expected_rxcui": "161",
+            "predicted_rxcui": "161",
+            "confidence": 0.99,
+            "tier": "phonetic_metaphone",
+            "correct": true
+          },
+          {
+            "query": "Dolo 650",
+            "expected_rxcui": "161",
+            "predicted_rxcui": "161",
+            "confidence": 0.98,
+            "tier": "exact_hash",
+            "correct": true
+          },
+          {
+            "query": "Azithromicin 500",
+            "expected_rxcui": "198440",
+            "predicted_rxcui": "198440",
+            "confidence": 0.99,
+            "tier": "phonetic_metaphone",
+            "correct": true
+          },
+          {
+            "query": "Metfornin 500mg",
+            "expected_rxcui": "860975",
+            "predicted_rxcui": "860975",
+            "confidence": 0.97,
+            "tier": "phonetic_metaphone",
+            "correct": true
+          },
+          {
+            "query": "Cetrizine 10mg",
+            "expected_rxcui": "310489",
+            "predicted_rxcui": "310489",
+            "confidence": 0.98,
+            "tier": "phonetic_metaphone",
+            "correct": true
+          },
+          {
+            "query": "Pan 40",
+            "expected_rxcui": "312615",
+            "predicted_rxcui": "312615",
+            "confidence": 0.98,
+            "tier": "exact_hash",
+            "correct": true
+          },
+          {
+            "query": "Pantocid 40",
+            "expected_rxcui": "312615",
+            "predicted_rxcui": "312615",
+            "confidence": 0.99,
+            "tier": "phonetic_metaphone",
+            "correct": true
+          },
+          {
+            "query": "Ibugesic 400",
+            "expected_rxcui": "310965",
+            "predicted_rxcui": "310965",
+            "confidence": 0.98,
+            "tier": "phonetic_metaphone",
+            "correct": true
+          },
+          {
+            "query": "Montair 10",
+            "expected_rxcui": "311689",
+            "predicted_rxcui": "311689",
+            "confidence": 0.98,
+            "tier": "phonetic_metaphone",
+            "correct": true
+          }
+        ]
+      },
+      "checkpoint_path": "checkpoints\\normalization\\rxnorm_index.pt"
+    }
+  },
+  "total_duration_seconds": 126.61
+}

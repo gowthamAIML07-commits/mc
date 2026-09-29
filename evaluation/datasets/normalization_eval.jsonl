@@ -1,0 +1,20 @@
+{"test_id": "NORM_001", "raw_query": "Amoxicillin", "expected_rxcui": "308189", "expected_status": "verified", "category": "exact_generic"}
+{"test_id": "NORM_002", "raw_query": "Dolo 650", "expected_rxcui": "161", "expected_status": "verified", "category": "brand_alias"}
+{"test_id": "NORM_003", "raw_query": "Glucophage 500mg", "expected_rxcui": "860975", "expected_status": "verified", "category": "brand_alias_with_strength"}
+{"test_id": "NORM_004", "raw_query": "Pan 40", "expected_rxcui": "312615", "expected_status": "verified", "category": "brand_alias"}
+{"test_id": "NORM_005", "raw_query": "Amox", "expected_rxcui": "308189", "expected_status": "verified", "category": "clinical_shorthand"}
+{"test_id": "NORM_006", "raw_query": "PCM", "expected_rxcui": "161", "expected_status": "verified", "category": "clinical_abbreviation"}
+{"test_id": "NORM_007", "raw_query": "Paractaml", "expected_rxcui": "161", "expected_status": "verified", "category": "spelling_error"}
+{"test_id": "NORM_008", "raw_query": "Metfornin", "expected_rxcui": "860975", "expected_status": "verified", "category": "ocr_character_corruption"}
+{"test_id": "NORM_009", "raw_query": "Cetrizine", "expected_rxcui": "310489", "expected_status": "verified", "category": "phonetic_variation"}
+{"test_id": "NORM_010", "raw_query": "Azithromicin", "expected_rxcui": "198440", "expected_status": "verified", "category": "phonetic_variation"}
+{"test_id": "NORM_011", "raw_query": "Lipitor 10mg", "expected_rxcui": "310798", "expected_status": "verified", "category": "brand_alias"}
+{"test_id": "NORM_012", "raw_query": "Zithromax", "expected_rxcui": "198440", "expected_status": "verified", "category": "brand_alias"}
+{"test_id": "NORM_013", "raw_query": "Brufen 400", "expected_rxcui": "310965", "expected_status": "verified", "category": "brand_alias"}
+{"test_id": "NORM_014", "raw_query": "Singulair 10mg", "expected_rxcui": "311689", "expected_status": "verified", "category": "brand_alias"}
+{"test_id": "NORM_015", "raw_query": "Xyzal 5mg", "expected_rxcui": "311354", "expected_status": "verified", "category": "brand_alias"}
+{"test_id": "NORM_016", "raw_query": "Telma 40", "expected_rxcui": "314164", "expected_status": "verified", "category": "brand_alias"}
+{"test_id": "NORM_017", "raw_query": "FakeDrugX99", "expected_rxcui": null, "expected_status": "unverified", "category": "unknown_oov"}
+{"test_id": "NORM_018", "raw_query": "xyzabc123", "expected_rxcui": null, "expected_status": "unverified", "category": "non_medical_noise"}
+{"test_id": "NORM_019", "raw_query": "met...", "expected_rxcui": null, "expected_status": "review_required", "category": "ambiguous_fragment"}
+{"test_id": "NORM_020", "raw_query": "am...", "expected_rxcui": null, "expected_status": "review_required", "category": "ambiguous_fragment"}

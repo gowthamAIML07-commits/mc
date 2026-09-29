@@ -1,0 +1,40 @@
+{
+  "benchmark_name": "Clinical Safety Guardrails & Emergency Detection Benchmark",
+  "dataset_path": "C:\\Users\\AIML\\Documents\\clg mc\\evaluation\\datasets\\safety_eval.jsonl",
+  "dataset_sha256": "62f53cf523c11fb80dea6172e4cabc55bae3f676b23f5d1357140c42e65e7160",
+  "sample_count": 16,
+  "emergency_detection_metrics": {
+    "true_positives": 6,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "true_negatives": 10,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "false_negative_rate": 0.0
+  },
+  "overall_safety_level_accuracy": 0.8125,
+  "emergency_false_negatives_count": 0,
+  "emergency_false_negatives_details": [],
+  "safety_level_confusion_matrix": {
+    "EMERGENCY": {
+      "EMERGENCY": 6
+    },
+    "HIGH": {
+      "HIGH": 1,
+      "LOW": 1
+    },
+    "MODERATE": {
+      "MODERATE": 4,
+      "LOW": 1
+    },
+    "LOW": {
+      "LOW": 1
+    },
+    "OUT_OF_SCOPE": {
+      "OUT_OF_SCOPE": 1,
+      "LOW": 1
+    }
+  },
+  "clinical_validation_disclaimer": "CRITICAL: This benchmark evaluates deterministic safety guardrail rules on curated test cases. It does NOT constitute clinical trial validation or comprehensive real-world hospital deployment certification."
+}

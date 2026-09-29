@@ -1,0 +1,66 @@
+{
+  "benchmark_name": "Clinical Named Entity Recognition (NER)",
+  "sample_count": 5,
+  "total_gold_entities": 24,
+  "total_extracted_entities": 29,
+  "overall_precision": 0.8276,
+  "overall_recall": 1.0,
+  "overall_f1_score": 0.9057,
+  "entity_classes_evaluated": [
+    "DRUG",
+    "BRAND",
+    "ACTIVE_INGREDIENT",
+    "DOSAGE",
+    "FREQUENCY",
+    "DURATION",
+    "SYMPTOM",
+    "DISEASE",
+    "ALLERGY",
+    "LAB_TEST",
+    "MEDICAL_PROCEDURE"
+  ],
+  "per_label_metrics": {
+    "DRUG": {
+      "samples": 6,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "DOSAGE": {
+      "samples": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "FREQUENCY": {
+      "samples": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "DURATION": {
+      "samples": 2,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "DISEASE": {
+      "samples": 3,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "SYMPTOM": {
+      "samples": 3,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "ALLERGY": {
+      "samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    }
+  }
+}

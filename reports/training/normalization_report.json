@@ -1,0 +1,124 @@
+{
+  "pipeline_name": "Medicine Normalization & Verification",
+  "model_id": "Pipeline_E_Hybrid_Normalizer",
+  "dataset_name": "RxNorm & RxTerms Clinical Ontologies",
+  "dataset_version": "2024 Current",
+  "dataset_sha256": "bc691dc0f8e8722acef1ff9e58ce8bfe55843b4306e1494a88a0c60f3dd1d418",
+  "training_seed": 42,
+  "training_time_seconds": 0.05,
+  "hardware_information": {
+    "os_name": "Windows",
+    "os_release": "11",
+    "os_version": "10.0.26200",
+    "architecture": "AMD64",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "cpu_count_logical": 24,
+    "python_version": "3.14.6",
+    "pytorch_version": "2.14.0+cpu",
+    "cuda_available": false,
+    "device_count": 0,
+    "device_name": "CPU"
+  },
+  "model_configuration": {
+    "algorithm": "4_Tier_Phonetic_Metaphone_Levenshtein_Embedding",
+    "indexed_concepts": 508,
+    "exact_lookup_keys": 2642,
+    "phonetic_keys": 1533,
+    "similarity_threshold": 0.65
+  },
+  "training_metrics": {
+    "indexed_concepts_count": 508,
+    "index_construction_loss": 0.0
+  },
+  "validation_metrics": {
+    "val_exact_alias_coverage": 1.0,
+    "val_phonetic_retrieval_rate": 1.0
+  },
+  "test_metrics": {
+    "test_top1_normalization_accuracy": 1.0,
+    "test_queries_evaluated": 10,
+    "benchmark_details": [
+      {
+        "query": "Amoxcillin 500mg",
+        "expected_rxcui": "308189",
+        "predicted_rxcui": "308189",
+        "confidence": 0.95,
+        "tier": "exact_sanitized",
+        "correct": true
+      },
+      {
+        "query": "Paractaml 650",
+        "expected_rxcui": "161",
+        "predicted_rxcui": "161",
+        "confidence": 0.98,
+        "tier": "phonetic_metaphone",
+        "correct": true
+      },
+      {
+        "query": "Dolo 650",
+        "expected_rxcui": "161",
+        "predicted_rxcui": "161",
+        "confidence": 0.98,
+        "tier": "exact_hash",
+        "correct": true
+      },
+      {
+        "query": "Azithromicin 500",
+        "expected_rxcui": "198440",
+        "predicted_rxcui": "198440",
+        "confidence": 0.99,
+        "tier": "phonetic_metaphone",
+        "correct": true
+      },
+      {
+        "query": "Metfornin 500mg",
+        "expected_rxcui": "860975",
+        "predicted_rxcui": "860975",
+        "confidence": 0.95,
+        "tier": "exact_sanitized",
+        "correct": true
+      },
+      {
+        "query": "Cetrizine 10mg",
+        "expected_rxcui": "310489",
+        "predicted_rxcui": "310489",
+        "confidence": 0.95,
+        "tier": "exact_sanitized",
+        "correct": true
+      },
+      {
+        "query": "Pan 40",
+        "expected_rxcui": "312615",
+        "predicted_rxcui": "312615",
+        "confidence": 0.98,
+        "tier": "exact_hash",
+        "correct": true
+      },
+      {
+        "query": "Pantocid 40",
+        "expected_rxcui": "312615",
+        "predicted_rxcui": "312615",
+        "confidence": 0.99,
+        "tier": "phonetic_metaphone",
+        "correct": true
+      },
+      {
+        "query": "Ibugesic 400",
+        "expected_rxcui": "310965",
+        "predicted_rxcui": "310965",
+        "confidence": 0.98,
+        "tier": "phonetic_metaphone",
+        "correct": true
+      },
+      {
+        "query": "Montair 10",
+        "expected_rxcui": "311689",
+        "predicted_rxcui": "311689",
+        "confidence": 0.98,
+        "tier": "phonetic_metaphone",
+        "correct": true
+      }
+    ]
+  },
+  "checkpoint_path": "checkpoints\\normalization\\rxnorm_index.pt"
+}

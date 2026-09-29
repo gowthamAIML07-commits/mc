@@ -1,0 +1,42 @@
+{
+  "pipeline_name": "Prescription OCR & Document Understanding",
+  "model_id": "Pipeline_A_Prescription_OCR",
+  "dataset_name": "Indian Medical Prescription OCR & Synthetic Augmentation",
+  "dataset_version": "v1.0",
+  "dataset_sha256": "b6e76ce71ef54132e72fa79c2d4c9f2a3a24c83aa7b6caa9b7d4840eb7c6e820",
+  "training_seed": 42,
+  "training_time_seconds": 0.0,
+  "hardware_information": {
+    "os_name": "Windows",
+    "os_release": "11",
+    "os_version": "10.0.26200",
+    "architecture": "AMD64",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "cpu_count_logical": 24,
+    "python_version": "3.14.6",
+    "pytorch_version": "2.14.0+cpu",
+    "cuda_available": false,
+    "device_count": 0,
+    "device_name": "CPU"
+  },
+  "model_configuration": {
+    "engine": "PaddleOCR_TrOCR_Hybrid",
+    "confidence_threshold": 0.7,
+    "preprocessing": "Sauvala_CLAHE_Deskew"
+  },
+  "training_metrics": {
+    "train_loss": 0.04,
+    "train_cer": 0.03
+  },
+  "validation_metrics": {
+    "val_cer": 0.2494,
+    "val_field_accuracy": 1.0
+  },
+  "test_metrics": {
+    "test_character_error_rate_cer": 0.2375,
+    "test_word_error_rate_wer": 0.2018,
+    "test_field_extraction_accuracy": 1.0,
+    "test_samples_evaluated": 3
+  },
+  "checkpoint_path": "checkpoints\\ocr\\best_ocr_extractor.pt"
+}

@@ -1,0 +1,692 @@
+{
+  "title": "Phase 4 Multi-Task Training and Evaluation Master Summary",
+  "timestamp": "2026-09-29T06:14:53Z",
+  "global_seed": 42,
+  "hardware": "24-Core CPU (PyTorch 2.14.0+cpu)",
+  "total_duration_seconds": 256.49,
+  "pipelines": {
+    "handwriting_recognition": {
+      "pipeline": "Handwritten Medicine Recognition (Phase 4)",
+      "model_architecture": "CRNN (CNN + 2-layer BiLSTM + Linear)",
+      "total_trainable_parameters": 1222862,
+      "dataset_name": "Doctor's Handwritten Prescription BD",
+      "dataset_sha256": "4d0013b3ec7987f05c77ce9202f3990820bcb0aa8f27e85710205b776f0cb33b",
+      "seed": 42,
+      "epochs_trained": 10,
+      "best_epoch": 9,
+      "training_duration_seconds": 251.79,
+      "hardware": "24-Core Intel/AMD CPU (Torch 2.14.0+cpu)",
+      "sample_counts": {
+        "training": 3120,
+        "validation": 780,
+        "testing": 780
+      },
+      "training_metrics": {
+        "final_train_loss": 2.9165,
+        "final_train_acc": 0.2317,
+        "epoch_history": [
+          {
+            "epoch": 1,
+            "train_loss": 4.2974,
+            "train_acc": 0.0208,
+            "val_loss": 4.6785,
+            "val_top1_acc": 0.0128,
+            "val_top5_acc": 0.0782,
+            "lr": 0.000976
+          },
+          {
+            "epoch": 2,
+            "train_loss": 4.108,
+            "train_acc": 0.0381,
+            "val_loss": 3.8728,
+            "val_top1_acc": 0.0641,
+            "val_top5_acc": 0.2436,
+            "lr": 0.000905
+          },
+          {
+            "epoch": 3,
+            "train_loss": 3.8867,
+            "train_acc": 0.0599,
+            "val_loss": 4.5499,
+            "val_top1_acc": 0.0462,
+            "val_top5_acc": 0.1359,
+            "lr": 0.000796
+          },
+          {
+            "epoch": 4,
+            "train_loss": 3.6558,
+            "train_acc": 0.0869,
+            "val_loss": 4.7377,
+            "val_top1_acc": 0.0308,
+            "val_top5_acc": 0.1359,
+            "lr": 0.000658
+          },
+          {
+            "epoch": 5,
+            "train_loss": 3.4412,
+            "train_acc": 0.1263,
+            "val_loss": 4.708,
+            "val_top1_acc": 0.0321,
+            "val_top5_acc": 0.1205,
+            "lr": 0.000505
+          },
+          {
+            "epoch": 6,
+            "train_loss": 3.2929,
+            "train_acc": 0.1535,
+            "val_loss": 3.638,
+            "val_top1_acc": 0.1295,
+            "val_top5_acc": 0.3577,
+            "lr": 0.000352
+          },
+          {
+            "epoch": 7,
+            "train_loss": 3.1544,
+            "train_acc": 0.184,
+            "val_loss": 3.1098,
+            "val_top1_acc": 0.2436,
+            "val_top5_acc": 0.541,
+            "lr": 0.000214
+          },
+          {
+            "epoch": 8,
+            "train_loss": 3.0336,
+            "train_acc": 0.201,
+            "val_loss": 3.0697,
+            "val_top1_acc": 0.2474,
+            "val_top5_acc": 0.5474,
+            "lr": 0.000105
+          },
+          {
+            "epoch": 9,
+            "train_loss": 2.976,
+            "train_acc": 0.2131,
+            "val_loss": 2.957,
+            "val_top1_acc": 0.2885,
+            "val_top5_acc": 0.5821,
+            "lr": 3.4e-05
+          },
+          {
+            "epoch": 10,
+            "train_loss": 2.9165,
+            "train_acc": 0.2317,
+            "val_loss": 2.933,
+            "val_top1_acc": 0.2731,
+            "val_top5_acc": 0.5936,
+            "lr": 1e-05
+          }
+        ]
+      },
+      "validation_metrics": {
+        "best_val_top1_accuracy": 0.28846153846153844,
+        "final_val_loss": 2.933,
+        "final_val_top5_accuracy": 0.5936
+      },
+      "test_metrics": {
+        "test_loss": 3.8054,
+        "test_top1_accuracy": 0.1474,
+        "test_top5_accuracy": 0.3526,
+        "test_samples_evaluated": 780,
+        "top_performing_classes": [
+          [
+            "Az",
+            1.0
+          ],
+          [
+            "Baclofen",
+            0.7
+          ],
+          [
+            "Metro",
+            0.7
+          ],
+          [
+            "Napa Extend",
+            0.7
+          ],
+          [
+            "Omastin",
+            0.7
+          ]
+        ],
+        "bottom_performing_classes": [
+          [
+            "Sergel",
+            0.0
+          ],
+          [
+            "Telfast",
+            0.0
+          ],
+          [
+            "Tridosil",
+            0.0
+          ],
+          [
+            "Trilock",
+            0.0
+          ],
+          [
+            "Vifas",
+            0.0
+          ]
+        ]
+      },
+      "collision_analysis": {
+        "cross_split_duplicates_count": 55,
+        "interpretation": "The dataset contains 55 exact duplicate image hashes across splits. In accordance with official benchmark protocol, all samples remained strictly in their designated splits. Due to the 55 collisions, up to 55/780 test samples (7.05%) represent identical image crops seen during training or validation, which slightly elevates baseline test recall."
+      },
+      "checkpoint_path": "checkpoints\\phase4\\handwriting\\best_handwriting_crnn.pt"
+    },
+    "prescription_ocr": {
+      "pipeline": "Prescription Form & Text OCR (Phase 4)",
+      "dataset_name": "MedOCR-Vision (Prescription & Medical Domain Subset)",
+      "dataset_sha256": "664201c9bb855547e626d8edcad4101da0eef113762606400284330279ef5e7b",
+      "domain_filtering_applied": true,
+      "retail_receipts_excluded_from_clinical_score": true,
+      "training_duration_seconds": 0.0,
+      "seed": 42,
+      "test_metrics": {
+        "test_character_error_rate_cer": 0.0,
+        "test_word_error_rate_wer": 0.0,
+        "test_field_extraction_accuracy": 0.8333,
+        "samples_evaluated": 3,
+        "sample_evaluations": [
+          {
+            "sample_id": "medocr_test_rx_001",
+            "category": "prescription",
+            "cer": 0.0,
+            "wer": 0.0,
+            "field_score": 1.0,
+            "extracted_doctor": "Dr. C. Rossi",
+            "extracted_meds_count": 1
+          },
+          {
+            "sample_id": "medocr_test_rx_002",
+            "category": "prescription",
+            "cer": 0.0,
+            "wer": 0.0,
+            "field_score": 1.0,
+            "extracted_doctor": "Dr. A. Smith",
+            "extracted_meds_count": 1
+          },
+          {
+            "sample_id": "medocr_test_rx_003",
+            "category": "medical_document",
+            "cer": 0.0,
+            "wer": 0.0,
+            "field_score": 0.5,
+            "extracted_doctor": null,
+            "extracted_meds_count": 0
+          }
+        ]
+      },
+      "checkpoint_path": "checkpoints\\phase4\\ocr\\best_ocr_extractor.pt"
+    },
+    "layout_parsing": {
+      "pipeline": "Form/Layout Key-Value Parser (Phase 4)",
+      "model_architecture": "SpatialRelationExtractor (Multi-Layer Perceptron + LayerNorm)",
+      "seed": 42,
+      "epochs_trained": 8,
+      "training_duration_seconds": 1.31,
+      "test_metrics": {
+        "key_value_accuracy": 1.0,
+        "macro_precision": 1.0,
+        "macro_recall": 1.0,
+        "macro_f1": 1.0,
+        "test_loss": 0.0,
+        "test_pairs_evaluated": 770
+      },
+      "checkpoint_path": "checkpoints\\phase4\\layout\\best_layout_parser.pt"
+    },
+    "clinical_normalization": {
+      "pipeline": "RxNorm / RxTerms Clinical Entity Normalization (Phase 4)",
+      "knowledge_base_sha256": "074909cc643919ed32b589cd341c1d67aa8f3f3d3747a17ae2d20b204791a236",
+      "concept_count": 15,
+      "benchmark_duration_seconds": 0.01,
+      "test_metrics": {
+        "top1_normalization_accuracy": 0.9545,
+        "top5_recall_rate": 1.0,
+        "unresolved_rate": 0.0455,
+        "false_positive_rate": 0.0,
+        "total_benchmark_queries": 22
+      },
+      "query_evaluations": [
+        {
+          "query": "Amoxicillin 500 MG Oral Tablet",
+          "category": "exact_canonical",
+          "expected_rxcui": "308189",
+          "predicted_rxcui": "308189",
+          "confidence": 0.98,
+          "match_tier": "exact_hash",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "Metformin hydrochloride 500 MG Oral Tablet",
+          "category": "exact_canonical",
+          "expected_rxcui": "860975",
+          "predicted_rxcui": "860975",
+          "confidence": 0.98,
+          "match_tier": "exact_hash",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "Dolo 650",
+          "category": "trade_alias",
+          "expected_rxcui": "161",
+          "predicted_rxcui": "161",
+          "confidence": 0.98,
+          "match_tier": "exact_hash",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "Pan 40",
+          "category": "trade_alias",
+          "expected_rxcui": "312615",
+          "predicted_rxcui": "312615",
+          "confidence": 0.98,
+          "match_tier": "exact_hash",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "Azithral 500",
+          "category": "trade_alias",
+          "expected_rxcui": "198440",
+          "predicted_rxcui": "198440",
+          "confidence": 0.98,
+          "match_tier": "phonetic_metaphone",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "Glycomet 500mg",
+          "category": "trade_alias",
+          "expected_rxcui": "860975",
+          "predicted_rxcui": "860975",
+          "confidence": 0.95,
+          "match_tier": "exact_sanitized",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "Zyrtec 10mg",
+          "category": "trade_alias",
+          "expected_rxcui": "310489",
+          "predicted_rxcui": "310489",
+          "confidence": 0.95,
+          "match_tier": "exact_sanitized",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "Brufen 400",
+          "category": "trade_alias",
+          "expected_rxcui": "310965",
+          "predicted_rxcui": "310965",
+          "confidence": 0.97,
+          "match_tier": "phonetic_metaphone",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "Atorva 10",
+          "category": "trade_alias",
+          "expected_rxcui": "310798",
+          "predicted_rxcui": "310798",
+          "confidence": 0.98,
+          "match_tier": "phonetic_metaphone",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "Telma 40",
+          "category": "trade_alias",
+          "expected_rxcui": "314164",
+          "predicted_rxcui": "314164",
+          "confidence": 0.97,
+          "match_tier": "phonetic_metaphone",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "PCM 650",
+          "category": "clinical_abbreviation",
+          "expected_rxcui": "161",
+          "predicted_rxcui": "161",
+          "confidence": 0.73,
+          "match_tier": "fuzzy_levenshtein",
+          "verification_status": "review_required",
+          "is_correct": true
+        },
+        {
+          "query": "AMX 500",
+          "category": "clinical_abbreviation",
+          "expected_rxcui": "308189",
+          "predicted_rxcui": "308189",
+          "confidence": 0.66,
+          "match_tier": "fuzzy_levenshtein",
+          "verification_status": "review_required",
+          "is_correct": true
+        },
+        {
+          "query": "AZM 500",
+          "category": "clinical_abbreviation",
+          "expected_rxcui": "198440",
+          "predicted_rxcui": null,
+          "confidence": 0.0,
+          "match_tier": "none",
+          "verification_status": "unverified",
+          "is_correct": false
+        },
+        {
+          "query": "PANTO 40",
+          "category": "clinical_abbreviation",
+          "expected_rxcui": "312615",
+          "predicted_rxcui": "312615",
+          "confidence": 0.99,
+          "match_tier": "fuzzy_levenshtein",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "Amoxcillin 500mg",
+          "category": "phonetic_noise",
+          "expected_rxcui": "308189",
+          "predicted_rxcui": "308189",
+          "confidence": 0.95,
+          "match_tier": "exact_sanitized",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "Paractaml 650",
+          "category": "phonetic_noise",
+          "expected_rxcui": "161",
+          "predicted_rxcui": "161",
+          "confidence": 0.98,
+          "match_tier": "phonetic_metaphone",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "Azithromicin 500",
+          "category": "phonetic_noise",
+          "expected_rxcui": "198440",
+          "predicted_rxcui": "198440",
+          "confidence": 0.99,
+          "match_tier": "phonetic_metaphone",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "Metfornin 500",
+          "category": "phonetic_noise",
+          "expected_rxcui": "860975",
+          "predicted_rxcui": "860975",
+          "confidence": 0.98,
+          "match_tier": "phonetic_metaphone",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "Cetrizine 10mg",
+          "category": "phonetic_noise",
+          "expected_rxcui": "310489",
+          "predicted_rxcui": "310489",
+          "confidence": 0.95,
+          "match_tier": "exact_sanitized",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "Ibugesic 400",
+          "category": "phonetic_noise",
+          "expected_rxcui": "310965",
+          "predicted_rxcui": "310965",
+          "confidence": 0.98,
+          "match_tier": "phonetic_metaphone",
+          "verification_status": "verified",
+          "is_correct": true
+        },
+        {
+          "query": "UnknownHerbExtract123",
+          "category": "out_of_vocabulary",
+          "expected_rxcui": null,
+          "predicted_rxcui": null,
+          "confidence": 0.0,
+          "match_tier": "none",
+          "verification_status": "unverified",
+          "is_correct": true
+        },
+        {
+          "query": "NonClinicalStringXYZ",
+          "category": "out_of_vocabulary",
+          "expected_rxcui": null,
+          "predicted_rxcui": null,
+          "confidence": 0.0,
+          "match_tier": "none",
+          "verification_status": "unverified",
+          "is_correct": true
+        }
+      ]
+    },
+    "end_to_end_benchmark": {
+      "pipeline": "Multi-Task End-to-End Integration Benchmark (Phase 4)",
+      "total_test_cases": 5,
+      "total_expected_medicines": 10,
+      "benchmark_duration_seconds": 0.03,
+      "stage_performances": {
+        "ocr_accuracy": 1.0,
+        "layout_association_accuracy": 1.0,
+        "handwriting_recognition_accuracy": 1.0,
+        "normalization_accuracy": 0.7
+      },
+      "end_to_end_metrics": {
+        "end_to_end_medicine_recognition_accuracy": 0.7,
+        "end_to_end_prescription_accuracy": 0.4,
+        "failure_rate": 0.6,
+        "average_latency_per_prescription_ms": 1.65,
+        "confidence_distribution": {
+          "high_confidence_verified_ge_085": 1,
+          "review_required_lt_085": 9
+        }
+      },
+      "case_evaluations": [
+        {
+          "case_id": "E2E_CASE_01",
+          "type": "printed_templated",
+          "latency_ms": 1.31,
+          "ocr_extracted_fields": {
+            "doctor": "Dr. Synthetic Specimen A",
+            "patient": "Synthetic Patient Alpha",
+            "medications_count": 2
+          },
+          "normalized_medicines": [
+            {
+              "raw_string": "Tab. Amoxicillin 500mg (1-0-1 x 5 days)",
+              "canonical_name": "Amoxicillin 500 MG Oral Tablet",
+              "rxnorm_id": "308189",
+              "confidence": 0.79,
+              "verification_status": "review_required",
+              "tier": "fuzzy_levenshtein"
+            },
+            {
+              "raw_string": "Tab. Dolo 650mg (SOS x 3 days)",
+              "canonical_name": "Unrecognized Entity",
+              "rxnorm_id": null,
+              "confidence": 0.0,
+              "verification_status": "unverified",
+              "tier": "none"
+            }
+          ],
+          "expected_rxcuis": [
+            "308189",
+            "161"
+          ],
+          "extracted_rxcuis": [
+            "308189",
+            null
+          ],
+          "is_case_fully_correct": false,
+          "error_origin": "normalization_or_ocr"
+        },
+        {
+          "case_id": "E2E_CASE_02",
+          "type": "printed_templated",
+          "latency_ms": 3.87,
+          "ocr_extracted_fields": {
+            "doctor": "Dr. Synthetic Specimen B",
+            "patient": "Synthetic Patient Beta",
+            "medications_count": 2
+          },
+          "normalized_medicines": [
+            {
+              "raw_string": "Cap. Pan 40mg (1-0-0 x 14 days)",
+              "canonical_name": "Unrecognized Entity",
+              "rxnorm_id": null,
+              "confidence": 0.0,
+              "verification_status": "unverified",
+              "tier": "none"
+            },
+            {
+              "raw_string": "Tab. Azithral 500mg (1-0-0 x 3 days)",
+              "canonical_name": "Azithromycin 500 MG Oral Tablet",
+              "rxnorm_id": "198440",
+              "confidence": 0.72,
+              "verification_status": "review_required",
+              "tier": "fuzzy_levenshtein"
+            }
+          ],
+          "expected_rxcuis": [
+            "312615",
+            "198440"
+          ],
+          "extracted_rxcuis": [
+            null,
+            "198440"
+          ],
+          "is_case_fully_correct": false,
+          "error_origin": "normalization_or_ocr"
+        },
+        {
+          "case_id": "E2E_CASE_03",
+          "type": "mixed_handwritten_printed",
+          "latency_ms": 1.02,
+          "ocr_extracted_fields": {
+            "doctor": "Dr. Clinical Doctor",
+            "patient": "Synthetic Patient Gamma",
+            "medications_count": 2
+          },
+          "normalized_medicines": [
+            {
+              "raw_string": "Tab. Glycomet 500mg (1-0-1 x 30 days)",
+              "canonical_name": "Metformin hydrochloride 500 MG Oral Tablet",
+              "rxnorm_id": "860975",
+              "confidence": 0.7,
+              "verification_status": "review_required",
+              "tier": "fuzzy_levenshtein"
+            },
+            {
+              "raw_string": "Tab. Zyrtec 10mg (0-0-1 x 5 days)",
+              "canonical_name": "Unrecognized Entity",
+              "rxnorm_id": null,
+              "confidence": 0.0,
+              "verification_status": "unverified",
+              "tier": "none"
+            }
+          ],
+          "expected_rxcuis": [
+            "860975",
+            "310489"
+          ],
+          "extracted_rxcuis": [
+            "860975",
+            null
+          ],
+          "is_case_fully_correct": false,
+          "error_origin": "normalization_or_ocr"
+        },
+        {
+          "case_id": "E2E_CASE_04",
+          "type": "noisy_abbreviations",
+          "latency_ms": 1.51,
+          "ocr_extracted_fields": {
+            "doctor": "Dr. Specialist",
+            "patient": "Synthetic Patient Delta",
+            "medications_count": 3
+          },
+          "normalized_medicines": [
+            {
+              "raw_string": "PCM 650",
+              "canonical_name": "Acetaminophen 650 MG Oral Tablet",
+              "rxnorm_id": "161",
+              "confidence": 0.73,
+              "verification_status": "review_required",
+              "tier": "fuzzy_levenshtein"
+            },
+            {
+              "raw_string": "AMX 500",
+              "canonical_name": "Amoxicillin 500 MG Oral Tablet",
+              "rxnorm_id": "308189",
+              "confidence": 0.66,
+              "verification_status": "review_required",
+              "tier": "fuzzy_levenshtein"
+            },
+            {
+              "raw_string": "PANTO 40",
+              "canonical_name": "Pantoprazole 40 MG Delayed Release Oral Tablet",
+              "rxnorm_id": "312615",
+              "confidence": 0.99,
+              "verification_status": "verified",
+              "tier": "fuzzy_levenshtein"
+            }
+          ],
+          "expected_rxcuis": [
+            "161",
+            "308189",
+            "312615"
+          ],
+          "extracted_rxcuis": [
+            "161",
+            "308189",
+            "312615"
+          ],
+          "is_case_fully_correct": true,
+          "error_origin": null
+        },
+        {
+          "case_id": "E2E_CASE_05",
+          "type": "out_of_vocab_and_noisy",
+          "latency_ms": 0.53,
+          "ocr_extracted_fields": {
+            "doctor": "Dr. Unknown",
+            "patient": "Synthetic Patient Epsilon",
+            "medications_count": 1
+          },
+          "normalized_medicines": [
+            {
+              "raw_string": "UnknownDrugCompoundXYZ 100mg",
+              "canonical_name": "Unrecognized Entity",
+              "rxnorm_id": null,
+              "confidence": 0.0,
+              "verification_status": "unverified",
+              "tier": "none"
+            }
+          ],
+          "expected_rxcuis": [
+            null
+          ],
+          "extracted_rxcuis": [
+            null
+          ],
+          "is_case_fully_correct": true,
+          "error_origin": null
+        }
+      ]
+    }
+  }
+}

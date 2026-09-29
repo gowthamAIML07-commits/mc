@@ -1,0 +1,173 @@
+{
+  "pipeline": "Handwritten Medicine Recognition (Phase 4)",
+  "model_architecture": "CRNN (CNN + 2-layer BiLSTM + Linear)",
+  "total_trainable_parameters": 1222862,
+  "dataset_name": "Doctor's Handwritten Prescription BD",
+  "dataset_sha256": "4d0013b3ec7987f05c77ce9202f3990820bcb0aa8f27e85710205b776f0cb33b",
+  "seed": 42,
+  "epochs_trained": 10,
+  "best_epoch": 9,
+  "training_duration_seconds": 251.79,
+  "hardware": "24-Core Intel/AMD CPU (Torch 2.14.0+cpu)",
+  "sample_counts": {
+    "training": 3120,
+    "validation": 780,
+    "testing": 780
+  },
+  "training_metrics": {
+    "final_train_loss": 2.9165,
+    "final_train_acc": 0.2317,
+    "epoch_history": [
+      {
+        "epoch": 1,
+        "train_loss": 4.2974,
+        "train_acc": 0.0208,
+        "val_loss": 4.6785,
+        "val_top1_acc": 0.0128,
+        "val_top5_acc": 0.0782,
+        "lr": 0.000976
+      },
+      {
+        "epoch": 2,
+        "train_loss": 4.108,
+        "train_acc": 0.0381,
+        "val_loss": 3.8728,
+        "val_top1_acc": 0.0641,
+        "val_top5_acc": 0.2436,
+        "lr": 0.000905
+      },
+      {
+        "epoch": 3,
+        "train_loss": 3.8867,
+        "train_acc": 0.0599,
+        "val_loss": 4.5499,
+        "val_top1_acc": 0.0462,
+        "val_top5_acc": 0.1359,
+        "lr": 0.000796
+      },
+      {
+        "epoch": 4,
+        "train_loss": 3.6558,
+        "train_acc": 0.0869,
+        "val_loss": 4.7377,
+        "val_top1_acc": 0.0308,
+        "val_top5_acc": 0.1359,
+        "lr": 0.000658
+      },
+      {
+        "epoch": 5,
+        "train_loss": 3.4412,
+        "train_acc": 0.1263,
+        "val_loss": 4.708,
+        "val_top1_acc": 0.0321,
+        "val_top5_acc": 0.1205,
+        "lr": 0.000505
+      },
+      {
+        "epoch": 6,
+        "train_loss": 3.2929,
+        "train_acc": 0.1535,
+        "val_loss": 3.638,
+        "val_top1_acc": 0.1295,
+        "val_top5_acc": 0.3577,
+        "lr": 0.000352
+      },
+      {
+        "epoch": 7,
+        "train_loss": 3.1544,
+        "train_acc": 0.184,
+        "val_loss": 3.1098,
+        "val_top1_acc": 0.2436,
+        "val_top5_acc": 0.541,
+        "lr": 0.000214
+      },
+      {
+        "epoch": 8,
+        "train_loss": 3.0336,
+        "train_acc": 0.201,
+        "val_loss": 3.0697,
+        "val_top1_acc": 0.2474,
+        "val_top5_acc": 0.5474,
+        "lr": 0.000105
+      },
+      {
+        "epoch": 9,
+        "train_loss": 2.976,
+        "train_acc": 0.2131,
+        "val_loss": 2.957,
+        "val_top1_acc": 0.2885,
+        "val_top5_acc": 0.5821,
+        "lr": 3.4e-05
+      },
+      {
+        "epoch": 10,
+        "train_loss": 2.9165,
+        "train_acc": 0.2317,
+        "val_loss": 2.933,
+        "val_top1_acc": 0.2731,
+        "val_top5_acc": 0.5936,
+        "lr": 1e-05
+      }
+    ]
+  },
+  "validation_metrics": {
+    "best_val_top1_accuracy": 0.28846153846153844,
+    "final_val_loss": 2.933,
+    "final_val_top5_accuracy": 0.5936
+  },
+  "test_metrics": {
+    "test_loss": 3.8054,
+    "test_top1_accuracy": 0.1474,
+    "test_top5_accuracy": 0.3526,
+    "test_samples_evaluated": 780,
+    "top_performing_classes": [
+      [
+        "Az",
+        1.0
+      ],
+      [
+        "Baclofen",
+        0.7
+      ],
+      [
+        "Metro",
+        0.7
+      ],
+      [
+        "Napa Extend",
+        0.7
+      ],
+      [
+        "Omastin",
+        0.7
+      ]
+    ],
+    "bottom_performing_classes": [
+      [
+        "Sergel",
+        0.0
+      ],
+      [
+        "Telfast",
+        0.0
+      ],
+      [
+        "Tridosil",
+        0.0
+      ],
+      [
+        "Trilock",
+        0.0
+      ],
+      [
+        "Vifas",
+        0.0
+      ]
+    ]
+  },
+  "collision_analysis": {
+    "cross_split_duplicates_count": 55,
+    "interpretation": "The dataset contains 55 exact duplicate image hashes across splits. In accordance with official benchmark protocol, all samples remained strictly in their designated splits. Due to the 55 collisions, up to 55/780 test samples (7.05%) represent identical image crops seen during training or validation, which slightly elevates baseline test recall."
+  },
+  "checkpoint_path": "checkpoints\\phase4\\handwriting\\best_handwriting_crnn.pt"
+}

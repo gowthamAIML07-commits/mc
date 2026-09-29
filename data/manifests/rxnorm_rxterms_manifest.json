@@ -1,0 +1,32 @@
+{
+  "resource_name": "RxNorm + RxTerms Clinical Lexical Normalization Knowledge Base",
+  "intended_task": "Clinical Entity Normalization, Verification & RAG (Pipeline E)",
+  "sources": [
+    {
+      "name": "RxNorm",
+      "authority": "U.S. National Library of Medicine (NLM / NIH)",
+      "url": "https://www.nlm.nih.gov/research/umls/rxnorm/index.html",
+      "license": "UMLS Metathesaurus License Agreement (Free, Registration Required)",
+      "redistribution_policy": "Derived processed indexes permitted; raw full UMLS data requires credentials."
+    },
+    {
+      "name": "RxTerms",
+      "authority": "U.S. National Library of Medicine (NLM / NIH)",
+      "url": "https://mor.nlm.nih.gov/download/rxterms/",
+      "license": "Open Access / Public Domain",
+      "redistribution_policy": "Prescription terminology free for use and distribution."
+    }
+  ],
+  "kb_sha256": "074909cc643919ed32b589cd341c1d67aa8f3f3d3747a17ae2d20b204791a236",
+  "concept_count": 15,
+  "total_aliases": 95,
+  "approved_vocabulary_count": 124,
+  "matching_tiers": [
+    "Tier 1: Exact Hash & Lowercase Alias Match",
+    "Tier 2: Clinical Abbreviation & Shorthand Resolution",
+    "Tier 3: Phonetic Clustering (Double Metaphone & Soundex)",
+    "Tier 4: Fuzzy Levenshtein Distance Ranking with Dosage Bonus"
+  ],
+  "abbreviation_dictionary_size": 40,
+  "provenance_tracked": true
+}

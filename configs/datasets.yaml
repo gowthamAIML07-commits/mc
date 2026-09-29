@@ -1,0 +1,36 @@
+# Runtime Dataset Configuration & Pipeline Paths
+
+registry_file: "data/registry/datasets.yaml"
+
+data_directories:
+  raw: "data/raw"
+  processed: "data/processed"
+  splits: "data/splits"
+  reports: "data/reports"
+
+pipeline_dataset_mapping:
+  ocr_document_extraction:
+    primary: "indian_medical_prescription_ocr"
+    augmentation: "synthetic_prescriptions"
+    layout_pretraining: "funsd"
+    batch_size: 16
+    image_size: [1024, 1024]
+    normalize_orientation: true
+
+  handwritten_medicine_recognition:
+    primary: "doctors_handwritten_prescription_bd"
+    crop_size: [128, 384]
+    color_mode: "RGB"
+    vocab_file: "data/processed/bd_handwritten/medicine_vocab.json"
+    batch_size: 32
+
+  medicine_ontology_and_normalization:
+    rxnorm_database_source: "rxnorm"
+    rxterms_search_index: "rxterms"
+    fuzzy_match_threshold: 0.85
+    phonetic_matching: true
+    min_confidence_auto_verify: 0.85
+
+  layout_understanding:
+    funsd_path: "data/processed/funsd"
+    max_seq_length: 512

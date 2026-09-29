@@ -1,0 +1,80 @@
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Data & Datasets (Strict Medical Compliance)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/splits/*
+!data/splits/.gitkeep
+data/reports/*
+!data/reports/.gitkeep
+
+# Model Weights & Checkpoints
+ml/weights/*
+!ml/weights/.gitkeep
+checkpoints/
+*.pth
+*.pt
+*.bin
+*.onnx
+*.safetensors
+
+# Logs & Monitoring
+logs/
+*.log
+mlruns/
+.mlflow/
+
+# Node.js & Next.js Frontend
+apps/frontend/node_modules/
+apps/frontend/.next/
+apps/frontend/out/
+apps/frontend/.pnp
+apps/frontend/.pnp.js
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.production
+.env.staging
+*.pem
+*.key
+
+# IDE & OS Files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temporary & Cache
+.pytest_cache/
+.coverage
+htmlcov/
+.qdrant/

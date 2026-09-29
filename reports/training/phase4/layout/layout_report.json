@@ -1,0 +1,16 @@
+{
+  "pipeline": "Form/Layout Key-Value Parser (Phase 4)",
+  "model_architecture": "SpatialRelationExtractor (Multi-Layer Perceptron + LayerNorm)",
+  "seed": 42,
+  "epochs_trained": 8,
+  "training_duration_seconds": 1.31,
+  "test_metrics": {
+    "key_value_accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "test_loss": 0.0,
+    "test_pairs_evaluated": 770
+  },
+  "checkpoint_path": "checkpoints\\phase4\\layout\\best_layout_parser.pt"
+}
