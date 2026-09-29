@@ -37,8 +37,12 @@ class SapBERTEmbeddingModel(BaseEmbeddingBenchmarkModel):
         )
         self.checkpoint_id = model_name_or_path
         logger.info(f"Loading SapBERT tokenizer and weights from {self.checkpoint_id} on {self.device}...")
-        self.tokenizer = AutoTokenizer.from_pretrained(self.checkpoint_id)
-        self.model = AutoModel.from_pretrained(self.checkpoint_id)
+        try:
+            self.tokenizer = AutoTokenizer.from_pretrained(self.checkpoint_id, local_files_only=True)
+            self.model = AutoModel.from_pretrained(self.checkpoint_id, local_files_only=True)
+        except Exception:
+            self.tokenizer = AutoTokenizer.from_pretrained(self.checkpoint_id)
+            self.model = AutoModel.from_pretrained(self.checkpoint_id)
         self.model.to(self.device)
         self.model.eval()
 

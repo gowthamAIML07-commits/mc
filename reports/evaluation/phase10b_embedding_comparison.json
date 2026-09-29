@@ -1,0 +1,126 @@
+{
+  "benchmark_name": "Phase 10B Dense Medical Embedding Comparison",
+  "corpus_version": "clinical-kb-v1",
+  "corpus_sha256": "ca53e467d61442537786b606a07564dde43dafda8c38fd4444037e85b03cadb2",
+  "eval_dataset_sha256": "df235a99f4902b097583116248ffb62872c35357cc69c30c3324ecdac670447e",
+  "query_count": 10,
+  "total_corpus_chunks": 4149,
+  "models": {
+    "current": {
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "recall_at_20": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0
+    },
+    "sapbert": {
+      "recall_at_1": 0.35,
+      "recall_at_5": 0.65,
+      "recall_at_10": 0.9,
+      "recall_at_20": 0.9,
+      "mrr": 0.5183,
+      "ndcg_at_5": 0.5523,
+      "ndcg_at_10": 0.6308
+    },
+    "biolinkbert": {
+      "recall_at_1": 0.0,
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0,
+      "recall_at_20": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "ndcg_at_10": 0.0
+    }
+  },
+  "model_metadata": {
+    "current": {
+      "model_name": "Current Medical Dense Embedding Engine",
+      "model_identifier": "current_production_v1",
+      "model_revision": "1.0.0",
+      "embedding_dimension": 128,
+      "tokenizer": "RegEx Tokenizer (word-boundary)",
+      "max_sequence_length": 512,
+      "pooling": "Token-hash Mean Pooling",
+      "normalization": "L2 Normalization",
+      "device": "cpu",
+      "license": "Project Internal / Apache-2.0",
+      "library_versions": {
+        "numpy": "2.5.2"
+      }
+    },
+    "sapbert": {
+      "model_name": "SapBERT (from PubMedBERT fulltext)",
+      "model_identifier": "cambridgeltl/SapBERT-from-PubMedBERT-fulltext",
+      "model_revision": "main",
+      "embedding_dimension": 768,
+      "tokenizer": "BertTokenizer (WordPiece, vocab=30522)",
+      "max_sequence_length": 128,
+      "pooling": "[CLS] Token Embedding",
+      "normalization": "L2 Normalization (unit sphere)",
+      "device": "cpu",
+      "license": "MIT License / Free for Research & Commercial Evaluation",
+      "library_versions": {
+        "torch": "2.14.0+cpu",
+        "transformers": "5.17.0",
+        "numpy": "2.5.2"
+      }
+    },
+    "biolinkbert": {
+      "model_name": "BioLinkBERT-base",
+      "model_identifier": "michiyasunaga/BioLinkBERT-base",
+      "model_revision": "main",
+      "embedding_dimension": 768,
+      "tokenizer": "BertTokenizer (WordPiece, vocab=28895)",
+      "max_sequence_length": 128,
+      "pooling": "[CLS] Token Embedding",
+      "normalization": "L2 Normalization (unit sphere)",
+      "device": "cpu",
+      "license": "MIT License / Open Access",
+      "library_versions": {
+        "torch": "2.14.0+cpu",
+        "transformers": "5.17.0",
+        "numpy": "2.5.2"
+      }
+    }
+  },
+  "sanity_checks": {
+    "current": {
+      "n_samples": 4149,
+      "dimension": 128,
+      "has_nan": false,
+      "has_inf": false,
+      "zero_vector_count": 0,
+      "mean_l2_norm": 1.0,
+      "min_l2_norm": 1.0,
+      "max_l2_norm": 1.0,
+      "is_l2_normalized": true,
+      "sanity_passed": true
+    },
+    "sapbert": {
+      "n_samples": 4149,
+      "dimension": 768,
+      "has_nan": false,
+      "has_inf": false,
+      "zero_vector_count": 0,
+      "mean_l2_norm": 1.0,
+      "min_l2_norm": 1.0,
+      "max_l2_norm": 1.0,
+      "is_l2_normalized": true,
+      "sanity_passed": true
+    },
+    "biolinkbert": {
+      "n_samples": 4149,
+      "dimension": 768,
+      "has_nan": false,
+      "has_inf": false,
+      "zero_vector_count": 0,
+      "mean_l2_norm": 1.0,
+      "min_l2_norm": 1.0,
+      "max_l2_norm": 1.0,
+      "is_l2_normalized": true,
+      "sanity_passed": true
+    }
+  }
+}

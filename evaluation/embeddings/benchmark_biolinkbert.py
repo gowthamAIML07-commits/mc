@@ -37,13 +37,17 @@ class BioLinkBERTEmbeddingModel(BaseEmbeddingBenchmarkModel):
         )
         self.checkpoint_id = model_name_or_path
         logger.info(f"Loading BioLinkBERT tokenizer and weights from {self.checkpoint_id} on {self.device}...")
-        self.tokenizer = AutoTokenizer.from_pretrained(self.checkpoint_id)
-        self.model = AutoModel.from_pretrained(self.checkpoint_id)
+        try:
+            self.tokenizer = AutoTokenizer.from_pretrained(self.checkpoint_id, local_files_only=True)
+            self.model = AutoModel.from_pretrained(self.checkpoint_id, local_files_only=True)
+        except Exception:
+            self.tokenizer = AutoTokenizer.from_pretrained(self.checkpoint_id)
+            self.model = AutoModel.from_pretrained(self.checkpoint_id)
         self.model.to(self.device)
         self.model.eval()
 
     def _encode_batch(self, texts: List[str]) -> np.ndarray:
-        """Encode a single batch of texts using BioLinkBERT CLS pooling."""
+        """Encode a single batch of texts using BioLinkBERT attention-weighted mean pooling."""
         inputs = self.tokenizer(
             texts,
             padding=True,
@@ -54,9 +58,12 @@ class BioLinkBERTEmbeddingModel(BaseEmbeddingBenchmarkModel):
 
         with torch.no_grad():
             outputs = self.model(**inputs)
-            # BioLinkBERT [CLS] token representation
-            cls_repr = outputs.last_hidden_state[:, 0, :]
-            norm_repr = torch.nn.functional.normalize(cls_repr, p=2, dim=1)
+            # Attention-weighted mean pooling across token representations
+            input_mask = inputs["attention_mask"].unsqueeze(-1).expand(outputs.last_hidden_state.size()).float()
+            sum_embeddings = torch.sum(outputs.last_hidden_state * input_mask, dim=1)
+            sum_mask = torch.clamp(input_mask.sum(dim=1), min=1e-9)
+            mean_pooled = sum_embeddings / sum_mask
+            norm_repr = torch.nn.functional.normalize(mean_pooled, p=2, dim=1)
 
         return norm_repr.cpu().numpy().astype(np.float32)
 

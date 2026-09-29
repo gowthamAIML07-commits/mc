@@ -1,0 +1,44 @@
+{
+  "current": {
+    "dimension": 128,
+    "indexing_time_sec": 0.531,
+    "chunks_per_sec": 7813.6,
+    "index_size_mb": 2.03,
+    "model_load_time_sec": 0.0,
+    "peak_rss_mb": 0.0,
+    "query_latency_ms": {
+      "mean": 0.37,
+      "p50": 0.25,
+      "p95": 0.86,
+      "p99": 1.04
+    }
+  },
+  "sapbert": {
+    "dimension": 768,
+    "indexing_time_sec": 81.512,
+    "chunks_per_sec": 50.9,
+    "index_size_mb": 12.16,
+    "model_load_time_sec": 2.212,
+    "peak_rss_mb": 0.0,
+    "query_latency_ms": {
+      "mean": 18.3,
+      "p50": 17.32,
+      "p95": 21.57,
+      "p99": 22.29
+    }
+  },
+  "biolinkbert": {
+    "dimension": 768,
+    "indexing_time_sec": 84.179,
+    "chunks_per_sec": 49.3,
+    "index_size_mb": 12.16,
+    "model_load_time_sec": 1.692,
+    "peak_rss_mb": 0.0,
+    "query_latency_ms": {
+      "mean": 19.2,
+      "p50": 19.87,
+      "p95": 20.95,
+      "p99": 21.08
+    }
+  }
+}
